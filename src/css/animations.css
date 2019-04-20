@@ -1,20 +1,69 @@
-.transit {
-  transition-delay: var(--transition-delay, 0s);
-  transition-duration: var(--transition-duration, 0.2s);
-  transition-property: var(--transition-property, all);
-  transition-timing-function: var(--transition-timing-function, ease);
+:root {
+  --multiplier: 1.2;
+  --duration: 1s;
+  --timing-function: cubic-bezier(0.65, 0.29, 0.41, 1.07);
 }
 .animate {
   animation-name: var(--animation, fade);
   animation-duration: var(--duration, 0.5s);
   animation-timing-function: var(--timing-function, linear);
   animation-delay: var(--delay, 0s);
-  animation-direction: var(--direction, forwards);
+  animation-direction: var(--direction, normal);
+  animation-fill-mode: var(--fill-mode, forwards);
   animation-iteration-count: var(--itieration-count, once);
+  animation-play-state: var(--play-state, running);
 }
-.rotate {
-  --animation: rotate;
+.animate--js {
+  animation-duration: var(--duration, 0.5s);
+  animation-timing-function: var(--timing-function, linear);
+  animation-delay: var(--delay, 0s);
+  animation-direction: var(--direction, normal);
+  animation-iteration-count: var(--iteration-count, once);
+  animation-play-state: var(--play-state, paused);
+  opacity: 0;
 }
+.animate--js.in {
+  animation-name: var(--animation, fade);
+  animation-fill-mode: var(--fill-mode, forwards);
+  animation-play-state: var(--play-state, running);
+  opacity: 1;
+}
+.fade {
+  --animation: fade;
+}
+.cutIn {
+  --animation: cutIn;
+}
+.rotationFull {
+  --animation: rotationFull;
+}
+.rotationHalf {
+  --animation: rotationHalf;
+}
+.rotationQuarter {
+  --animation: rotationQuarter;
+}
+.zoomIn {
+  --animation: zoomIn;
+}
+.zoomInFade {
+  --animation: zoomInFade;
+}
+.zoomOut {
+  --animation: zoomOut;
+}
+.zoomOutFade {
+  --animation: zoomOutFade;
+}
+/*
+
+flips
+fades
+rotates
+zooms
+clip-path
+
+ */
 @keyframes articleFadeIn {
   0% {
     opacity: 0;
@@ -43,7 +92,17 @@
     opacity: 1;
   }
 }
-@keyframes rotate {
+@keyframes cutIn {
+  0% {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes rotationFull {
   0% {
     transform: rotate(0deg);
   }
@@ -51,4 +110,55 @@
     transform: rotate(360deg);
   }
 }
-/*# sourceMappingURL=animations.css.map */
+@keyframes rotationHalf {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes rotationQuarter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(calc(1 * var(--multiplier, 1)));
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomOutFade {
+  0% {
+    transform: scale(calc(1 * var(--multiplier, 1)));
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(calc(1 / var(--multiplier, 1)));
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomInFade {
+  0% {
+    transform: scale(calc(1 * var(--multiplier, 1)));
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

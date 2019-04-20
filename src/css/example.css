@@ -8,8 +8,9 @@ body {
   line-height: 1.72;
 }
 section {
+  position: relative;
   width: 100%;
-  height: 100vh;
+  padding: 15vh 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -21,6 +22,38 @@ section .inner {
   padding: 40px;
   text-align: center;
 }
+section .scroll {
+  position: absolute;
+  bottom: 50px;
+}
+section .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 60px;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  max-height: 76vh;
+  padding: 0 60px;
+}
+section .grid .left {
+  grid-column: 1;
+}
+section .grid .right {
+  grid-column: 2;
+}
+section .grid .img-holder {
+  width: 100%;
+  height: 100%;
+}
+section .grid .img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 h1 {
   font-size: 70px;
   letter-spacing: -0.02em;
@@ -29,17 +62,53 @@ h1 {
 }
 h2 {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'Inter UI', sans-serif;
   font-weight: 300;
   color: #777;
 }
-.download {
-  margin: 20px auto 40px;
-  display: inline-block;
-  padding: 10px 26px;
-  font-weight: 500;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background: #eee;
+h3 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Roboto', 'Inter UI', sans-serif;
+  letter-spacing: 0.01em;
 }
-/*# sourceMappingURL=example.css.map */
+h3 ~ p {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(0, 0, 0, 0.5);
+}
+a {
+  color: #ffa519;
+  font-size: 14px;
+  cursor: pointer;
+}
+.btn {
+  display: inline-block;
+  padding: 8px 22px;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #ffa519;
+  background: rgba(255, 165, 25, 0.1);
+}
+.btn.primary {
+  color: #fff;
+  background-color: #ffa519;
+}
+.btn.trigger-animation:before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin-right: 10px;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent #ffa519;
+}
+.download {
+  margin: 40px auto 20px;
+}
+.spacer {
+  margin-top: 25px;
+}

@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
 
     function animateIn() {
-        $('.animate:not(.in)').each(function() {
+        $('.animate--js').each(function() {
             var $this = $(this),
                 thisPosition = $this.offset().top,
 

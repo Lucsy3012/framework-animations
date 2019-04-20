@@ -22,5 +22,9 @@ When the file is linked to your project you can use the full range of pre-define
     
 See a full documentation for the usage of the *animation* property at https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations for further instructions.
 
+## Features
+Custom Properties
+--multiplier
+
 ## Additional features
 I've also included a small jQuery script `animate.js` that lets you take full advantage of your animations. It searches for `.animate` classes within your file and applies the `.in` class to this specific element if it appears on your device. This allows you to delay an animation and trigger it when the user first encounters the element. 
