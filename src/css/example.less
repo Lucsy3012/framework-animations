@@ -1,6 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
 
 @accent-color: #ffa519;
+@gray: #f7f7f7;
 
 * { box-sizing: border-box; }
 
@@ -13,11 +14,18 @@ body {
 section {
   position: relative;
   width: 100%;
-  padding: 15vh 0;
+  padding: 10vh 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  &.gray {
+    background-color: @gray;
+  }
+  &.fullsize {
+    height: 100vh;
+  }
 
   .inner {
     width: 100%;
@@ -69,23 +77,35 @@ h1 {
   margin: 0;
 }
 
-h2 {
+.title {
+  display: block;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+}
+
+h2, .h2 {
   margin: 0;
   font-family: 'Roboto', 'Inter UI', sans-serif;
   font-weight: 300;
   color: #777;
 }
 
-h3 {
+h3, .h3 {
   margin: 0;
   font-size: 24px;
   font-family: 'Roboto', 'Inter UI', sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
 
   ~ p {
     font-size: 14px;
     line-height: 2;
     color: fade(#000, 50);
+  }
+  b {
+    font-weight: 900;
   }
 }
 
@@ -129,4 +149,8 @@ a {
 
 .spacer {
   margin-top: 25px;
+}
+
+.spacer-large {
+  margin-top: 50px;
 }

@@ -10,11 +10,17 @@ body {
 section {
   position: relative;
   width: 100%;
-  padding: 15vh 0;
+  padding: 10vh 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+section.gray {
+  background-color: #f7f7f7;
+}
+section.fullsize {
+  height: 100vh;
 }
 section .inner {
   width: 100%;
@@ -60,22 +66,37 @@ h1 {
   font-weight: 800;
   margin: 0;
 }
-h2 {
+.title {
+  display: block;
+  font-size: 50px;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0;
+}
+h2,
+.h2 {
   margin: 0;
   font-family: 'Roboto', 'Inter UI', sans-serif;
   font-weight: 300;
   color: #777;
 }
-h3 {
+h3,
+.h3 {
   margin: 0;
   font-size: 24px;
   font-family: 'Roboto', 'Inter UI', sans-serif;
+  font-weight: 300;
   letter-spacing: 0.01em;
 }
-h3 ~ p {
+h3 ~ p,
+.h3 ~ p {
   font-size: 14px;
   line-height: 2;
   color: rgba(0, 0, 0, 0.5);
+}
+h3 b,
+.h3 b {
+  font-weight: 900;
 }
 a {
   color: #ffa519;
@@ -111,4 +132,7 @@ a {
 }
 .spacer {
   margin-top: 25px;
+}
+.spacer-large {
+  margin-top: 50px;
 }

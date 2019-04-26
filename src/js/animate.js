@@ -23,4 +23,15 @@ $(document).ready(function () {
         });
     }
 
+    /*
+    completeSequence();
+
+    function completeSequence() {
+        $('.animate--js.sequence').each(function() {
+            $(this).children().addClass('animate--js');
+            $(this).removeClass('animate--js');
+        });
+    }
+    */
+
 });

@@ -13,22 +13,23 @@
 
     <link rel="stylesheet" href="src/css/animations.css">
     <link rel="stylesheet" href="src/css/example.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
 </head>
 <body>
 
-<section>
+<section class="fullsize">
     <div class="inner">
         <h1>animations.css</h1>
         <h2>Accessible animations</h2>
         <p class="download">
             <a class="btn">Download</a>
-            <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">Github</a>
+            <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">View on Github</a>
         </p>
 
-        <!-- Try -->
+        <p class="spacer-large"><a href="#documentation">Learn more</a></p>
+        <!-- Try
         <div>
-            <p><small>Try it for yourself</small></p>
+            <p class="spacer-large"><small>Try it yourself</small></p>
             <form>
                 <select>
                     <optgroup label="Standards">
@@ -40,6 +41,7 @@
                 </select>
             </form>
         </div>
+        -->
     </div>
 
     <div class="scroll animate zoomInFade">Scroll for more examples and features</div>
@@ -49,13 +51,21 @@
     <div class="grid">
         <div class="left">
             <div class="img-holder">
-                <img src="http://placehold.it/400x400" alt="" class="animate--js">
+                <img src="http://placehold.it/400x400" alt="" class="animate--js" id="example-trigger">
             </div>
         </div>
         <div class="right">
-            <h3>Trigger when scrolling by</h3>
+            <h3><b>Trigger</b> when scrolling by</h3>
+            <!--
+            <h3 class="sequence">
+                <span class="animate--js slideUp"><b>Trigger</b></span>
+                <span class="animate--js slideUp">when</span>
+                <span class="animate--js slideUp">scrolling</span>
+                <span class="animate--js slideUp">by</span>
+            </h3>
+            -->
             <p>The animate.js allows you to trigger any animation as soon as the user reaches a <b>.animate--js</b> element. It allows for scrolling aware animation triggering. The .js-file is lightweight and only requires jQuery.</p>
-            <a class="trigger-animation btn spacer">Restart animation</a>
+            <a class="trigger-animation btn spacer" data-trigger="example-trigger">Restart animation</a>
         </div>
     </div>
 </section>
@@ -63,17 +73,58 @@
 <section>
     <div class="grid">
         <div class="left">
-            <h3>combine</h3>
+            <h3><b>Combine</b> different animations</h3>
             <p>You can stack different types of animations on top of each other. They'll trigger at the same time, except you decide to change the default behavior.</p>
-            <a class="trigger-animation btn spacer">Restart animation</a>
+            <a class="trigger-animation btn spacer" data-trigger="example-combine">Restart animation</a>
         </div>
         <div class="right">
             <div class="img-holder">
-                <div class="animate--js zoomOutFade">
-                    <img src="http://placehold.it/400x400" alt="" class="animate--js cutIn">
+                <div class="animate--js zoomOutFade" id="example-combine">
+                    <div class="animate--js rotateX">
+                        <img src="http://placehold.it/400x400" alt="" class="animate--js cutIn">
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <div class="img-holder">
+                <img src="http://placehold.it/400x400" alt="" class="animate--js duration-l delay-s cutInSplit" id="example-properties">
+            </div>
+        </div>
+        <div class="right">
+            <h3><b>Customize</b> & <b>pre-define</b> properties</h3>
+            <p>Every property of the animation is changeable; for the whole document, separate sections and areas or individually. Change it in your CSS file or via pre-defined classes.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-properties">Restart animation</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <h3>Built with CSS <b>custom properties</b></h3>
+            <p>The foundation of animations.css are <a href="https://drafts.csswg.org/css-variables/" target="_blank">custom properties</a> - an powerful addition to CSS3. This allows for high customization and readability.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-custom-properties">Restart animation</a>
+        </div>
+        <div class="right">
+            <div class="img-holder">
+                <div class="animate--js moveBottom duration-l push" id="example-custom-properties">
+                    <img src="http://placehold.it/400x400" alt="" class="animate--js fade pull">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gray" id="documentation">
+    <div class="inner">
+        <div class="title">Ready to start?</div>
+        <h2>Built-in classes</h2>
     </div>
 </section>
 
@@ -81,9 +132,19 @@
 <script src="src/js/animate.js"></script>
 
 <script>
-    $('.trigger-animation').on('click', function() {
-        // todo
+    $('.trigger-animation').on('click', function(e) {
+        e.preventDefault();
+        cloneAnimation($(this));
     });
+
+    function cloneAnimation($el) {
+        var data = $el.data('trigger'),
+            $clone = $('#' + data),
+            $cloneParent = $clone.parent();
+
+        $clone.clone().appendTo($cloneParent);
+        $clone.remove();
+    }
 </script>
 
 </body>

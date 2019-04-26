@@ -1,47 +1,193 @@
 :root {
   --multiplier: 1.2;
-  --duration: 1s;
+  --sequence-steps: 0.1s;
   --timing-function: cubic-bezier(0.65, 0.29, 0.41, 1.07);
+  --move: 25%;
+  --zoom: 1.2;
+  --rotate: 15deg;
+}
+span.animate,
+span.animate--js {
+  display: inline-block;
 }
 .animate {
   animation-name: var(--animation, fade);
-  animation-duration: var(--duration, 0.5s);
+  animation-duration: var(--duration, 1s);
   animation-timing-function: var(--timing-function, linear);
   animation-delay: var(--delay, 0s);
   animation-direction: var(--direction, normal);
-  animation-fill-mode: var(--fill-mode, forwards);
-  animation-iteration-count: var(--itieration-count, once);
+  animation-fill-mode: var(--fill-mode, both);
+  animation-iteration-count: var(--iteration-count, 1);
   animation-play-state: var(--play-state, running);
 }
 .animate--js {
-  animation-duration: var(--duration, 0.5s);
+  animation-duration: var(--duration, 1s);
   animation-timing-function: var(--timing-function, linear);
   animation-delay: var(--delay, 0s);
   animation-direction: var(--direction, normal);
-  animation-iteration-count: var(--iteration-count, once);
+  animation-iteration-count: var(--iteration-count, 1);
   animation-play-state: var(--play-state, paused);
   opacity: 0;
 }
 .animate--js.in {
   animation-name: var(--animation, fade);
-  animation-fill-mode: var(--fill-mode, forwards);
+  animation-fill-mode: var(--fill-mode, both);
   animation-play-state: var(--play-state, running);
   opacity: 1;
 }
+.duration-xs {
+  --duration: 0.25s;
+}
+.duration-s {
+  --duration: 0.50s;
+}
+.duration-m {
+  --duration: 1.00s;
+}
+.duration-l {
+  --duration: 2.00s;
+}
+.duration-xl {
+  --duration: 5.00s;
+}
+.reset-duration {
+  --duration: revert;
+}
+.delay-xs {
+  --delay: 0.10s;
+}
+.delay-s {
+  --delay: 0.25s;
+}
+.delay-m {
+  --delay: 0.50s;
+}
+.delay-l {
+  --delay: 1.00s;
+}
+.delay-xl {
+  --delay: 2.00s;
+}
+.reset-delay {
+  --delay: revert;
+}
+.linear {
+  --timing-function: linear;
+}
+.ease {
+  --timing-function: ease;
+}
+.ease-in {
+  --timing-function: ease-in;
+}
+.ease-out {
+  --timing-function: ease-out;
+}
+.cubic-in {
+  --timing-function: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+.cubic-out {
+  --timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.cubic-in-out {
+  --timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+.push {
+  --timing-function: cubic-bezier(0.37, 0.37, 0.12, 1.01);
+}
+.pull {
+  --timing-function: cubic-bezier(0.65, 0.29, 0.41, 1.07);
+}
+.reverse {
+  --direction: reverse;
+}
+.alternate {
+  --direction: alternate;
+}
+.alternate-reverse {
+  --direction: alternate-reverse;
+}
+.reset-direction {
+  --direction: revert;
+}
+.forwards {
+  --fill-mode: forwards;
+}
+.backwards {
+  --fill-mode: backwards;
+}
+.both {
+  --fill-mode: both;
+}
+.reset-fill-mode {
+  --fill-mode: revert;
+}
+.once {
+  --iteration-count: 1;
+}
+.infinite {
+  --iteration-count: infinite;
+}
+.reset-iteration-count {
+  --iteration-count: revert;
+}
+.paused {
+  --play-state: paused;
+}
+.running {
+  --play-state: running;
+}
+.reset-play-state {
+  --play-state: revert;
+}
+.loop {
+  --timing-function: linear;
+  --direction: normal;
+  --fill-mode: none;
+  --iteration-count: infinite;
+}
+.pulse {
+  --timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --direction: alternate;
+  --fill-mode: none;
+  --iteration-count: infinite;
+}
+.reset {
+  --name: revert;
+  --duration: revert;
+  --timing-function: revert;
+  --delay: revert;
+  --direction: revert;
+  --fill-mode: revert;
+  --iteration-count: revert;
+  --play-state: revert;
+}
+.sequence > *:nth-child(1) {
+  --delay: 0.00s;
+}
+.sequence > *:nth-child(2) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 1);
+}
+.sequence > *:nth-child(3) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 2);
+}
+.sequence > *:nth-child(4) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 3);
+}
+.sequence > *:nth-child(5) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 4);
+}
+.sequence > *:nth-child(6) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 5);
+}
+.sequence > *:nth-child(7) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 6);
+}
+.sequence > *:nth-child(8) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 7);
+}
 .fade {
   --animation: fade;
-}
-.cutIn {
-  --animation: cutIn;
-}
-.rotationFull {
-  --animation: rotationFull;
-}
-.rotationHalf {
-  --animation: rotationHalf;
-}
-.rotationQuarter {
-  --animation: rotationQuarter;
 }
 .zoomIn {
   --animation: zoomIn;
@@ -55,6 +201,72 @@
 .zoomOutFade {
   --animation: zoomOutFade;
 }
+.moveTop {
+  --animation: moveTop;
+}
+.moveTopFull {
+  --animation: moveTopFull;
+}
+.moveBottom {
+  --animation: moveBottom;
+}
+.moveBottomFull {
+  --animation: moveBottomFull;
+}
+.moveLeft {
+  --animation: moveLeft;
+}
+.moveLeftFull {
+  --animation: moveLeftFull;
+}
+.moveRight {
+  --animation: moveRight;
+}
+.moveRightFull {
+  --animation: moveRightFull;
+}
+.rotate {
+  --animation: rotater;
+}
+.rotateX {
+  --animation: rotateX;
+}
+.rotateY {
+  --animation: rotateY;
+}
+.rotateQuarter {
+  --animation: rotateQuarter;
+}
+.rotateHalf {
+  --animation: rotateHalf;
+}
+.rotateXHalf {
+  --animation: rotateXHalf;
+}
+.rotateYHalf {
+  --animation: rotateYHalf;
+}
+.rotateFull {
+  --animation: rotateFull;
+}
+.rotateYFull {
+  --animation: rotateYFull;
+}
+.rotateXFull {
+  --animation: rotateXFull;
+}
+.cutIn {
+  --animation: cutIn;
+}
+.cutInSplit {
+  --animation: cutInSplit;
+}
+.slideUp {
+  --animation: slideUp;
+}
+.slideDown {
+  --animation: slideDown;
+}
 /*
 
 flips
@@ -64,26 +276,6 @@ zooms
 clip-path
 
  */
-@keyframes articleFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px) perspective(500px) rotateX(10deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) perspective(500px) rotateX(0);
-  }
-}
-@keyframes revealVertical {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%) perspective(500px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) perspective(500px);
-  }
-}
 @keyframes fade {
   0% {
     opacity: 0;
@@ -92,38 +284,100 @@ clip-path
     opacity: 1;
   }
 }
-@keyframes cutIn {
+@keyframes moveTop {
   0% {
-    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    transform: translate(0, calc(var(--move) * -1));
   }
   100% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: translate(0, 0);
   }
 }
-@keyframes rotationFull {
+@keyframes moveTopFull {
   0% {
-    transform: rotate(0deg);
+    transform: translate(0, 100%);
   }
   100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveBottom {
+  0% {
+    transform: translate(0, var(--move));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveBottomFull {
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: translate(calc(var(--move) * -1), 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveLeftFull {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveRight {
+  0% {
+    transform: translate(var(--move), 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes moveRightFull {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(var(--rotate));
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+@keyframes rotateFull {
+  0% {
     transform: rotate(360deg);
   }
-}
-@keyframes rotationHalf {
-  0% {
+  100% {
     transform: rotate(0deg);
   }
-  100% {
+}
+@keyframes rotateHalf {
+  0% {
     transform: rotate(180deg);
   }
-}
-@keyframes rotationQuarter {
-  0% {
+  100% {
     transform: rotate(0deg);
   }
-  100% {
+}
+@keyframes rotateQuarter {
+  0% {
     transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 @keyframes zoomOut {
@@ -160,5 +414,97 @@ clip-path
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+@keyframes rotateX {
+  0% {
+    transform: perspective(500px) rotateX(calc(var(--rotate, 15deg) * var(--multiplier, 1)));
+  }
+  100% {
+    transform: perspective(500px) rotateX(0);
+  }
+}
+@keyframes rotateXHalf {
+  0% {
+    transform: perspective(500px) rotateX(45deg);
+  }
+  100% {
+    transform: perspective(500px) rotateX(0);
+  }
+}
+@keyframes rotateXFull {
+  0% {
+    transform: perspective(500px) rotateX(90deg);
+  }
+  100% {
+    transform: perspective(500px) rotateX(0);
+  }
+}
+@keyframes rotateY {
+  0% {
+    transform: perspective(500px) rotateY(calc(var(--rotate, 15deg) * var(--multiplier, 1)));
+  }
+  100% {
+    transform: perspective(500px) rotateY(0);
+  }
+}
+@keyframes rotateYHalf {
+  0% {
+    transform: perspective(500px) rotateY(45deg);
+  }
+  100% {
+    transform: perspective(500px) rotateY(0);
+  }
+}
+@keyframes rotateYFull {
+  0% {
+    transform: perspective(500px) rotateY(90deg);
+  }
+  100% {
+    transform: perspective(500px) rotateY(0);
+  }
+}
+@keyframes cutIn {
+  0% {
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes cutInSplit {
+  0% {
+    -webkit-clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translate(0, 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translate(0, -100%);
+    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
