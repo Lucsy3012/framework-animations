@@ -162,29 +162,62 @@ span.animate--js {
   --iteration-count: revert;
   --play-state: revert;
 }
-.sequence > *:nth-child(1) {
+.animate.sequence,
+.animate--js.sequence {
+  animation: none;
+}
+.animate.sequence > span,
+.animate--js.sequence > span {
+  display: inline-block;
+}
+.animate.sequence > *,
+.animate--js.sequence > * {
+  animation-name: var(--animation, fade);
+  animation-duration: var(--duration, 1s);
+  animation-timing-function: var(--timing-function, linear);
+  animation-delay: var(--delay, 0s);
+  animation-direction: var(--direction, normal);
+  animation-iteration-count: var(--iteration-count, 1);
+  animation-play-state: var(--play-state, paused);
+  opacity: 0;
+}
+.animate.sequence > *:nth-child(1),
+.animate--js.sequence > *:nth-child(1) {
   --delay: 0.00s;
 }
-.sequence > *:nth-child(2) {
+.animate.sequence > *:nth-child(2),
+.animate--js.sequence > *:nth-child(2) {
   --delay: calc(var(--sequence-steps, 0.1s) * 1);
 }
-.sequence > *:nth-child(3) {
+.animate.sequence > *:nth-child(3),
+.animate--js.sequence > *:nth-child(3) {
   --delay: calc(var(--sequence-steps, 0.1s) * 2);
 }
-.sequence > *:nth-child(4) {
+.animate.sequence > *:nth-child(4),
+.animate--js.sequence > *:nth-child(4) {
   --delay: calc(var(--sequence-steps, 0.1s) * 3);
 }
-.sequence > *:nth-child(5) {
+.animate.sequence > *:nth-child(5),
+.animate--js.sequence > *:nth-child(5) {
   --delay: calc(var(--sequence-steps, 0.1s) * 4);
 }
-.sequence > *:nth-child(6) {
+.animate.sequence > *:nth-child(6),
+.animate--js.sequence > *:nth-child(6) {
   --delay: calc(var(--sequence-steps, 0.1s) * 5);
 }
-.sequence > *:nth-child(7) {
+.animate.sequence > *:nth-child(7),
+.animate--js.sequence > *:nth-child(7) {
   --delay: calc(var(--sequence-steps, 0.1s) * 6);
 }
-.sequence > *:nth-child(8) {
+.animate.sequence > *:nth-child(8),
+.animate--js.sequence > *:nth-child(8) {
   --delay: calc(var(--sequence-steps, 0.1s) * 7);
+}
+.animate--js.sequence.in > * {
+  animation-name: var(--animation, fade);
+  animation-fill-mode: var(--fill-mode, both);
+  animation-play-state: var(--play-state, running);
+  opacity: 1;
 }
 .fade {
   --animation: fade;

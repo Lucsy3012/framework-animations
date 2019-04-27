@@ -28,27 +28,26 @@ section .inner {
   padding: 40px;
   text-align: center;
 }
-section .scroll {
-  position: absolute;
-  bottom: 50px;
+section .left {
+  grid-column: 1;
+}
+section .right {
+  grid-column: 2;
+}
+section .both {
+  grid-column: 1 / -1;
 }
 section .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  grid-gap: 60px;
+  grid-gap: var(--gutter, 60px);
+  padding: 0 var(--gutter, 60px);
   width: 100%;
-  max-width: 1000px;
+  max-width: 1100px;
   height: 100%;
   max-height: 76vh;
-  padding: 0 60px;
-}
-section .grid .left {
-  grid-column: 1;
-}
-section .grid .right {
-  grid-column: 2;
 }
 section .grid .img-holder {
   width: 100%;
@@ -59,6 +58,26 @@ section .grid .img-holder img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+section .grid-large {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  width: 100%;
+  grid-gap: var(--gutter, 60px);
+  padding: 0 var(--gutter, 60px);
+  max-width: 1100px;
+}
+section .grid-large dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1 / -1;
+}
+section .grid-large dl dt {
+  grid-column: 1;
+}
+section .grid-large dl dd {
+  grid-column: 2;
 }
 h1 {
   font-size: 70px;
@@ -88,20 +107,28 @@ h3,
   font-weight: 300;
   letter-spacing: 0.01em;
 }
-h3 ~ p,
-.h3 ~ p {
-  font-size: 14px;
-  line-height: 2;
-  color: rgba(0, 0, 0, 0.5);
-}
 h3 b,
 .h3 b {
   font-weight: 900;
+}
+h3 ~ p,
+.h3 ~ p,
+h4 ~ p,
+.h4 ~ p,
+h5 ~ p,
+.h5 ~ p {
+  font-size: 14px;
+  line-height: 2;
+  color: rgba(0, 0, 0, 0.5);
 }
 a {
   color: #ffa519;
   font-size: 14px;
   cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }
 .btn {
   display: inline-block;
@@ -112,10 +139,26 @@ a {
   text-decoration: none;
   color: #ffa519;
   background: rgba(255, 165, 25, 0.1);
+  transition: all .2s ease;
+}
+.btn:hover {
+  background-color: rgba(255, 165, 25, 0.14);
 }
 .btn.primary {
   color: #fff;
   background-color: #ffa519;
+}
+.btn.primary:hover {
+  background-color: #ffaf33;
+}
+.btn.transparent {
+  color: #ffa519;
+  background: transparent;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+.btn.transparent:hover {
+  background-color: transparent;
 }
 .btn.trigger-animation:before {
   content: "";
@@ -127,12 +170,93 @@ a {
   border-width: 5px 0 5px 8px;
   border-color: transparent transparent transparent #ffa519;
 }
-.download {
-  margin: 40px auto 20px;
-}
 .spacer {
   margin-top: 25px;
 }
 .spacer-large {
   margin-top: 50px;
+}
+code.inline {
+  padding: 4px 7px;
+  border-radius: 4px;
+  background-color: #e8e8e8;
+  color: #000;
+  font-size: 13px;
+}
+code.block {
+  display: block;
+  position: relative;
+  padding: 10px 18px;
+  border-radius: 4px;
+  background-color: #e2e1e1;
+}
+code#code-example {
+  margin-top: 30px;
+  background: none;
+}
+pre {
+  white-space: unset;
+  margin: 0;
+}
+pre + pre {
+  margin-top: 10px;
+}
+#tutorial {
+  margin: 0 auto 50px;
+}
+#tutorial * {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+#tutorial *:nth-child(4) {
+  background-color: #ffa519;
+}
+#tutorial *:nth-child(3) {
+  background-color: rgba(255, 165, 25, 0.75);
+}
+#tutorial *:nth-child(2) {
+  background-color: rgba(255, 165, 25, 0.5);
+}
+#tutorial *:nth-child(1) {
+  background-color: rgba(255, 165, 25, 0.25);
+}
+#tutorial *.circle {
+  border-radius: 100%;
+}
+.download {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+}
+.download .helper {
+  display: block;
+  margin-top: 15px;
+}
+.download .helper a {
+  font-size: 12px;
+  color: #777;
+}
+#example-sequence {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 400px;
+  grid-gap: 10px;
+}
+#example-sequence > div {
+  background-color: #ccc;
+}
+#documentation .grid-large {
+  height: 100%;
+  align-content: flex-start;
+}
+#documentation .sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: var(--gutter, 60px);
+}
+#documentation .separator {
+  border-top: 1px solid #e2e1e1;
+  padding-top: var(--gutter, 60px);
 }

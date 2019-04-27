@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible animations – animations.css</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Lucas Dietrich">
+    <meta name="audience" content="webdeveloper, developers, designers">
+    <meta name="robots" content="noindex,nofollow">
+
+    <link rel="stylesheet" href="vendor/highlight.min.css">
+    <link rel="stylesheet" href="src/css/animations.css">
+    <link rel="stylesheet" href="src/css/example.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
+</head>
+<body>
+
+<section class="fullsize">
+    <div class="inner">
+        <div class="animate" id="tutorial">
+            <div class="animate circle"></div>
+            <div class="animate block"></div>
+            <div class="animate circle"></div>
+            <div class="animate block"></div>
+        </div>
+        <h1>animations.css</h1>
+        <h2>Accessible animations</h2>
+        <p class="download">
+            <a class="btn transparent" href="#features">Features</a>
+            <a class="btn transparent" href="#documentation">Documentation</a>
+            <a class="btn">Download</a>
+            <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">View on Github</a>
+        </p>
+
+        <!-- Try -->
+        <div>
+            <p class="spacer-large"><small>Try it yourself</small></p>
+            <form id="for-tutorial">
+                <select>
+                    <optgroup label="Standards">
+                        <option value="fade" selected disabled>fade</option>
+                        <option value="rotateX">rotateX</option>
+                        <option value="zoomOut">zoomOut</option>
+                        <option value="zoomOutFade">zoomOutFade</option>
+                    </optgroup>
+                </select>
+            </form>
+        </div>
+
+        <pre>
+            <code class="block hljs" id="code-example"></code>
+        </pre>
+    </div>
+</section>
+
+<section id="features">
+    <div class="grid">
+        <div class="left">
+            <div class="img-holder">
+                <img src="http://placehold.it/920x760" alt="" class="animate--js" id="example-trigger">
+            </div>
+        </div>
+        <div class="right">
+            <h3><b>Trigger</b> when scrolling by</h3>
+            <p>The animate.js allows you to trigger any animation as soon as the user reaches an <b>.animate--js</b> element. It allows for scrolling aware animation triggering. The .js-file is lightweight and only requires jQuery.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-trigger">Restart animation</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <h3><b>Combine</b> different animations</h3>
+            <p>You can stack different types of animations on top of each other. This will result in less code and way more options!</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-combine">Restart animation</a>
+        </div>
+        <div class="right">
+            <div class="img-holder">
+                <div class="animate--js zoomOutFade" id="example-combine">
+                    <div class="animate--js rotateX">
+                        <img src="http://placehold.it/920x760" alt="" class="animate--js cutIn">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <div class="img-holder">
+                <img src="http://placehold.it/920x760" alt="" class="animate--js duration-l delay-s cutInSplit" id="example-properties">
+            </div>
+        </div>
+        <div class="right">
+            <h3><b>Customize</b> & <b>pre-define</b> properties</h3>
+            <p>Every property of the animation is changeable; for the whole document, separate sections and areas or individually. Change it in your CSS file or via pre-defined classes.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-properties">Restart animation</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <h3>Built with CSS <b>custom properties</b></h3>
+            <p>The foundation of animations.css are <a href="https://drafts.csswg.org/css-variables/" target="_blank">custom properties</a> - an powerful addition to CSS3. This allows for high customization and readability.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-custom-properties">Restart animation</a>
+        </div>
+        <div class="right">
+            <div class="img-holder">
+                <div class="animate--js moveBottom duration-l push" id="example-custom-properties">
+                    <img src="http://placehold.it/920x760" alt="" class="animate--js fade pull">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="grid">
+        <div class="left">
+            <div class="img-holder">
+                <div class="animate--js sequence slideUp" id="example-sequence">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h3><b>Sequences</b></h3>
+            <p>animations.css provides you with a CSS only sequence function. This means that one universal trigger will call the inherited animation to all children. The delay of each animation can be altered with the --sequence-steps variable.</p>
+            <a class="trigger-animation btn spacer" data-trigger="example-sequence">Restart animation</a>
+        </div>
+    </div>
+</section>
+
+<section class="gray" id="documentation">
+    <div class="grid-large">
+
+        <!-- Setup -->
+        <div class="both">
+            <div class="title">Setup</div>
+            <h2>How to get animations.css running</h2>
+        </div>
+        <div class="left">
+            <h3>Option A: Download the files</h3>
+            <p>Luckily the library is very lightweight and can be downloaded <a>here</a>. The package contains the <code class="inline">animations.min.css</code> and an <code class="inline">animate.min.js</code> file. While the JS file is optional (but recommended) the CSS file is mandatory.</p>
+            <h4>Then link them to your project:</h4>
+            <pre>
+                <code class="hljs block">
+                    &lt;!-- in the &lt;head&gt; --&gt;<br/>
+                    &lt;link rel="stylesheet" href="path/to/animations.min.css"&gt;
+                </code>
+            </pre>
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- at the end of the page --&gt;<br/>
+                    &lt;script src="path/to/animate.min.js"&gt;&lt;/script&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="right">
+            <h3>Option B: Link to the files directly</h3>
+            <p>If you desire to stay updated, don't want or can't implement CSS and JS files to your project you can link to them as well.</p>
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- in the &lt;head&gt; --&gt;<br/>
+                    &lt;link rel="stylesheet" href="..."&gt;
+                </code>
+            </pre>
+        </div>
+
+        <!-- Start -->
+        <div class="both separator">
+            <div class="title">Use</div>
+            <h2>How to use animations.css</h2>
+        </div>
+        <div class="left">
+            <h3>Animate whenever</h3>
+            <p>An animation normally starts when the CSS file has been loaded. It doesn't need to be visible for the user to be animated.</p>
+            <pre>
+                <code class="hljs block">
+                    &lt;!-- basic fade animation --&gt;<br/>
+                    &lt;div class="animate"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+            <h4>We can now add further options, for example:</h4>
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- looping rotateFull animation  --&gt;<br/>
+                    &lt;div class="animate rotateFull loop"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+        </div>
+        <div class="right">
+            <h3>Animate when scrolled to</h3>
+            <p>A more dynamic and useful approach is the .animate--js class, that let's you start an animation when the user reaches the element.</p>
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- basic fade animation --&gt;<br/>
+                    &lt;div class="animate--js"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+            <h4>We can now add further options, for example:</h4>
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- delayed cutIn animation --&gt;<br/>
+                    &lt;div class="animate--js cutIn delay-s"&gt;&lt;/div&gt;
+                </code>
+            </pre>
+        </div>
+
+        <!-- more -->
+        <div class="left separator">
+            <div class="sticky">
+                <div class="title">Documentation</div>
+                <h2>Built-in classes</h2>
+                <ul>
+                    <li><a href="#animate">.animate</a></li>
+                    <li><a href="#animate--js">.animate--js</a></li>
+                    <li><a href="#animation-properties">animation-properties</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <h4>.animate</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam assumenda atque beatae cum cumque dolor, eaque esse excepturi hic inventore iure molestiae pariatur perspiciatis placeat provident qui, reiciendis voluptatem!</p>
+            <h4>.animate--js</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam assumenda atque beatae cum cumque dolor, eaque esse excepturi hic inventore iure molestiae pariatur perspiciatis placeat provident qui, reiciendis voluptatem!</p>
+        </div>
+    </div>
+
+    <!--
+    <div class="grid-large">
+        <div class="both">
+            <div class="title">Ready to start?</div>
+            <h2>The animation-property</h2>
+            <ul>
+                <li><a href="#animation-name">animation-name</a></li>
+                <li><a href="#animation-duration">animation-duration</a></li>
+            </ul>
+        </div>
+        <table class="right">
+            <tr>
+                <td colspan="2">animations</td>
+            </tr>
+            <tr>
+                <td>.animate</td>
+                <td>Starts an animations</td>
+            </tr>
+            <tr>
+                <td>.animate--js</td>
+                <td>Starts an animations when scrolled by (requires animate.js)</td>
+            </tr>
+        </table>
+    </div>
+    -->
+</section>
+
+<script src="vendor/jquery.min.js"></script>
+<script src="vendor/highlight.pack.js"></script>
+<script src="src/js/animate.js"></script>
+
+<script>
+    
+    // Smooth scrolling
+    $('a[href^="#"]').on('click', function(e) {
+        e.preventDefault();
+
+        var href = $(this).attr('href'),
+            offset = $(href).offset().top;
+
+        $('html, body').animate({
+            scrollTop: offset
+        }, 1000);
+    });
+
+    // Restart animation on click
+    $('.trigger-animation').on('click', function(e) {
+        e.preventDefault();
+        cloneAnimation($(this));
+    });
+
+    function cloneAnimation($el) {
+        var data = $el.data('trigger'),
+            $clone = $('#' + data),
+            $cloneParent = $clone.parent();
+
+        $clone.clone().appendTo($cloneParent);
+        $clone.remove();
+    }
+    
+    // Tutorial
+    var removeAnimation = ['fade', 'rotateX', 'zoomOut', 'zoomOutFade'];
+    var removeClasses = ['loop', 'pulse', 'sequence', 'zoomOutFade'];
+
+    $('#for-tutorial select').on('change', function() {
+        var $receiver = $('#tutorial'),
+            val = $(this).val();
+
+        $receiver.removeClass(removeAnimation);
+        $receiver.addClass(val);
+        getTutorialClasses();
+    });
+
+    function getTutorialClasses() {
+        var classes = $('#tutorial').attr('class');
+        var insert = '<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"' + classes + '"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>';
+
+        $('#code-example').html(insert);
+    }
+</script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>

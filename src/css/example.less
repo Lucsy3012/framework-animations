@@ -33,29 +33,23 @@ section {
     padding: 40px;
     text-align: center;
   }
-  .scroll {
-    position: absolute;
-    bottom: 50px;
-  }
+
+  .left   { grid-column: 1; }
+  .right  { grid-column: 2; }
+  .both   { grid-column: ~'1 / -1'; }
 
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    grid-gap: 60px;
+    grid-gap: var(--gutter, 60px);
+    padding: 0 var(--gutter, 60px);
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     height: 100%;
     max-height: 76vh;
-    padding: 0 60px;
 
-    .left {
-      grid-column: 1;
-    }
-    .right {
-      grid-column: 2;
-    }
     .img-holder {
       width: 100%;
       height: 100%;
@@ -65,6 +59,28 @@ section {
         height: 100%;
         object-fit: cover;
         object-position: center;
+      }
+    }
+  }
+  .grid-large {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    width: 100%;
+    grid-gap: var(--gutter, 60px);
+    padding: 0 var(--gutter, 60px);
+    max-width: 1100px;
+
+    dl {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column: ~'1 / -1';
+
+      dt {
+        grid-column: 1;
+      }
+      dd {
+        grid-column: 2;
       }
     }
   }
@@ -99,13 +115,18 @@ h3, .h3 {
   font-weight: 300;
   letter-spacing: 0.01em;
 
+  b {
+    font-weight: 900;
+  }
+}
+
+h3, .h3,
+h4, .h4,
+h5, .h5 {
   ~ p {
     font-size: 14px;
     line-height: 2;
     color: fade(#000, 50);
-  }
-  b {
-    font-weight: 900;
   }
 }
 
@@ -113,6 +134,11 @@ a {
   color: @accent-color;
   font-size: 14px;
   cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .btn {
@@ -124,10 +150,29 @@ a {
   text-decoration: none;
   color: @accent-color;
   background: fade(@accent-color, 10);
+  transition: all .2s ease;
+
+  &:hover {
+    background-color: fade(@accent-color, 14);
+  }
 
   &.primary {
     color: #fff;
     background-color: @accent-color;
+
+    &:hover {
+      background-color: lighten(@accent-color, 5%);
+    }
+  }
+  &.transparent {
+    color: @accent-color;
+    background: transparent;
+    padding-left: 11px;
+    padding-right: 11px;
+
+    &:hover {
+      background-color: transparent;
+    }
   }
   &.trigger-animation {
     &:before {
@@ -143,14 +188,103 @@ a {
   }
 }
 
-.download {
-  margin: 40px auto 20px;
-}
-
 .spacer {
   margin-top: 25px;
 }
 
 .spacer-large {
   margin-top: 50px;
+}
+
+code {
+  &.inline {
+    padding: 4px 7px;
+    border-radius: 4px;
+    background-color: #e8e8e8;
+    color: #000;
+    font-size: 13px;
+  }
+  &.block {
+    display: block;
+    position: relative;
+    padding: 10px 18px;
+    border-radius: 4px;
+    background-color: #e2e1e1;
+  }
+  &#code-example {
+    margin-top: 30px;
+    background: none;
+  }
+}
+
+pre {
+  white-space: unset;
+  margin: 0;
+
+  + pre {
+    margin-top: 10px;
+  }
+}
+
+#tutorial {
+  margin: 0 auto 50px;
+
+  * {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+
+    &:nth-child(4) { background-color: @accent-color; }
+    &:nth-child(3) { background-color: fade(@accent-color, 75); }
+    &:nth-child(2) { background-color: fade(@accent-color, 50); }
+    &:nth-child(1) { background-color: fade(@accent-color, 25); }
+
+    &.circle {
+      border-radius: 100%;
+    }
+  }
+}
+
+.download {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+
+  .helper {
+    display: block;
+    margin-top: 15px;
+
+    a {
+      font-size: 12px;
+      color: #777;
+    }
+  }
+}
+
+#example-sequence {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 400px;
+  grid-gap: 10px;
+
+  > div {
+    background-color: #ccc;
+  }
+}
+
+#documentation {
+  .grid-large {
+    height: 100%;
+    align-content: flex-start;
+  }
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--gutter, 60px);
+  }
+  .separator {
+    border-top: 1px solid #e2e1e1;
+    padding-top: var(--gutter, 60px);
+  }
 }
