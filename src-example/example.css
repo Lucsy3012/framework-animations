@@ -20,7 +20,7 @@ section.gray {
   background-color: #f7f7f7;
 }
 section.fullsize {
-  height: 100vh;
+  min-height: 100vh;
 }
 section .inner {
   width: 100%;
@@ -70,14 +70,24 @@ section .grid-large {
 }
 section .grid-large dl {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 160px auto;
   grid-column: 1 / -1;
 }
 section .grid-large dl dt {
   grid-column: 1;
+  padding: 5px 0;
+  font-weight: 800;
+  font-size: 14px;
 }
 section .grid-large dl dd {
   grid-column: 2;
+  margin-left: 0;
+  padding: 5px 0;
+  font-size: 14px;
+}
+section .grid-large dl dd ~ dt,
+section .grid-large dl dd ~ dd {
+  border-top: 1px solid #e2e1e1;
 }
 h1 {
   font-size: 70px;
@@ -111,6 +121,8 @@ h3 b,
 .h3 b {
   font-weight: 900;
 }
+h2 ~ p,
+.h2 ~ p,
 h3 ~ p,
 .h3 ~ p,
 h4 ~ p,
@@ -121,8 +133,13 @@ h5 ~ p,
   line-height: 2;
   color: rgba(0, 0, 0, 0.5);
 }
+.smaller {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: .5;
+}
 a {
-  color: #ffa519;
+  color: #4836a3;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
@@ -132,27 +149,27 @@ a:hover {
 }
 .btn {
   display: inline-block;
-  padding: 8px 22px;
+  padding: 8px 20px;
   font-weight: 500;
   border-radius: 4px;
   font-size: 14px;
   text-decoration: none;
-  color: #ffa519;
-  background: rgba(255, 165, 25, 0.1);
+  color: #4836a3;
+  background: rgba(72, 54, 163, 0.1);
   transition: all .2s ease;
 }
 .btn:hover {
-  background-color: rgba(255, 165, 25, 0.14);
+  background-color: rgba(72, 54, 163, 0.14);
 }
 .btn.primary {
   color: #fff;
-  background-color: #ffa519;
+  background-color: #4836a3;
 }
 .btn.primary:hover {
-  background-color: #ffaf33;
+  background-color: #503cb6;
 }
 .btn.transparent {
-  color: #ffa519;
+  color: #4836a3;
   background: transparent;
   padding-left: 11px;
   padding-right: 11px;
@@ -168,13 +185,16 @@ a:hover {
   border-style: solid;
   margin-right: 10px;
   border-width: 5px 0 5px 8px;
-  border-color: transparent transparent transparent #ffa519;
+  border-color: transparent transparent transparent #4836a3;
+}
+.spacer-right {
+  margin-right: 10px;
 }
 .spacer {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 .spacer-large {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 code.inline {
   padding: 4px 7px;
@@ -188,10 +208,10 @@ code.block {
   position: relative;
   padding: 10px 18px;
   border-radius: 4px;
-  background-color: #e2e1e1;
+  background-color: #f1f1f1;
 }
 code#code-example {
-  margin-top: 30px;
+  margin-top: 20px;
   background: none;
 }
 pre {
@@ -202,7 +222,7 @@ pre + pre {
   margin-top: 10px;
 }
 #tutorial {
-  margin: 0 auto 50px;
+  margin: 0 auto 30px;
 }
 #tutorial * {
   display: inline-block;
@@ -211,32 +231,63 @@ pre + pre {
   margin: 0 5px;
 }
 #tutorial *:nth-child(4) {
-  background-color: #ffa519;
+  background-color: #4836a3;
 }
 #tutorial *:nth-child(3) {
-  background-color: rgba(255, 165, 25, 0.75);
+  background-color: rgba(72, 54, 163, 0.75);
 }
 #tutorial *:nth-child(2) {
-  background-color: rgba(255, 165, 25, 0.5);
+  background-color: rgba(72, 54, 163, 0.5);
 }
 #tutorial *:nth-child(1) {
-  background-color: rgba(255, 165, 25, 0.25);
+  background-color: rgba(72, 54, 163, 0.25);
 }
 #tutorial *.circle {
   border-radius: 100%;
 }
-.download {
+nav {
   position: fixed;
-  top: 30px;
-  right: 40px;
+  z-index: 100;
+  width: 100%;
+  padding: 20px 30px;
+  text-align: right;
+  background-color: #fff;
+  transition: all .2s ease;
 }
-.download .helper {
+nav a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+nav.fixed {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+form label {
   display: block;
-  margin-top: 15px;
-}
-.download .helper a {
   font-size: 12px;
-  color: #777;
+  margin-bottom: 5px;
+}
+form select {
+  -ms-progress-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-top: 5px;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-radius: 4px;
+  min-width: 160px;
+  background-color: #f7f6f6;
+  border: 0;
+}
+form#for-tutorial {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+form#for-tutorial .form-group {
+  text-align: left;
+}
+form#for-tutorial .form-group select {
+  width: 100%;
 }
 #example-sequence {
   display: grid;
@@ -244,19 +295,117 @@ pre + pre {
   grid-template-rows: 400px;
   grid-gap: 10px;
 }
-#example-sequence > div {
-  background-color: #ccc;
+#example-sequence > div:nth-child(4) {
+  background-color: #4836a3;
+}
+#example-sequence > div:nth-child(3) {
+  background-color: rgba(72, 54, 163, 0.75);
+}
+#example-sequence > div:nth-child(2) {
+  background-color: rgba(72, 54, 163, 0.5);
+}
+#example-sequence > div:nth-child(1) {
+  background-color: rgba(72, 54, 163, 0.25);
 }
 #documentation .grid-large {
   height: 100%;
   align-content: flex-start;
 }
-#documentation .sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: var(--gutter, 60px);
-}
 #documentation .separator {
   border-top: 1px solid #e2e1e1;
-  padding-top: var(--gutter, 60px);
+}
+.text-center {
+  text-align: center;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tr:hover td {
+  background-color: #f1f1f1;
+}
+table td,
+table th {
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #e2e1e1;
+}
+table th {
+  background-color: #f1f1f1;
+}
+table .category {
+  font-weight: 700;
+}
+@media screen and (max-width: 767px) {
+  :root {
+    --gutter: 40px;
+  }
+  h1,
+  .h1,
+  .title {
+    font-size: 50px;
+  }
+  nav {
+    padding: 15px 20px;
+  }
+  nav a {
+    font-size: 12px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+  form#for-tutorial {
+    grid-template-columns: 100%;
+    grid-gap: 20px;
+  }
+  section {
+    padding: 5vh 0;
+  }
+  section .grid,
+  section .grid-large {
+    grid-template-columns: 100%;
+    max-height: unset;
+  }
+  section .grid .left,
+  section .grid-large .left,
+  section .grid .right,
+  section .grid-large .right {
+    grid-column: unset;
+  }
+  section .grid .left.image,
+  section .grid-large .left.image,
+  section .grid .right.image,
+  section .grid-large .right.image {
+    grid-row: 1;
+  }
+  section.fullsize {
+    padding: 70px 0 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  h1,
+  .h1,
+  .title {
+    font-size: 30px;
+  }
+  h2,
+  .h2,
+  h3,
+  .h3 {
+    font-size: 18px;
+  }
+  table th,
+  table td,
+  table a {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .spacer {
+    margin-top: 15px;
+  }
+  .spacer-large {
+    margin-top: 30px;
+  }
 }

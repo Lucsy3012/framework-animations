@@ -1,15 +1,11 @@
+@import "keyframes";
+
 @push: cubic-bezier(0.37, 0.37, 0.12, 1.01);
 @pull: cubic-bezier(0.65, 0.29, 0.41, 1.07);
 
 :root {
-  --multiplier: 1.2;
   --sequence-steps: 0.1s;
   --timing-function: @pull;
-
-  // Custom values
-  --move: 25%;
-  --zoom: 1.2;
-  --rotate: 15deg;
 }
 
 span {
@@ -20,6 +16,15 @@ span {
 }
 
 .animate {
+  -webkit-animation-name: var(--animation, fade);
+  -webkit-animation-duration: var(--duration, 1s);
+  -webkit-animation-timing-function: var(--timing-function, linear);
+  -webkit-animation-delay: var(--delay, 0s);
+  -webkit-animation-direction: var(--direction, normal);
+  -webkit-animation-fill-mode: var(--fill-mode, both);
+  -webkit-animation-iteration-count: var(--iteration-count, 1);
+  -webkit-animation-play-state: var(--play-state, running);
+
   animation-name: var(--animation, fade);
   animation-duration: var(--duration, 1s);
   animation-timing-function: var(--timing-function, linear);
@@ -31,6 +36,13 @@ span {
 }
 
 .animate--js {
+  -webkit-animation-duration: var(--duration, 1s);
+  -webkit-animation-timing-function: var(--timing-function, linear);
+  -webkit-animation-delay: var(--delay, 0s);
+  -webkit-animation-direction: var(--direction, normal);
+  -webkit-animation-iteration-count: var(--iteration-count, 1);
+  -webkit-animation-play-state: var(--play-state, paused);
+
   animation-duration: var(--duration, 1s);
   animation-timing-function: var(--timing-function, linear);
   animation-delay: var(--delay, 0s);
@@ -40,11 +52,29 @@ span {
   opacity: 0;
 
   &.in {
+    -webkit-animation-name: var(--animation, fade);
+    -webkit-animation-fill-mode: var(--fill-mode, both);
+    -webkit-animation-play-state: var(--play-state, running);
+
     animation-name: var(--animation, fade);
     animation-fill-mode: var(--fill-mode, both);
     animation-play-state: var(--play-state, running);
     opacity: 1;
   }
+}
+
+// Pre-defined states
+.loop {
+  --timing-function: linear;
+  --direction: normal;
+  --fill-mode: none;
+  --iteration-count: infinite;
+}
+.pulse {
+  --timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --direction: alternate;
+  --fill-mode: none;
+  --iteration-count: infinite;
 }
 
 // Durations
@@ -96,20 +126,6 @@ span {
 .running  { --play-state: running; }
 .reset-play-state { --play-state: revert; }
 
-// Pre-defined states
-.loop {
-  --timing-function: linear;
-  --direction: normal;
-  --fill-mode: none;
-  --iteration-count: infinite;
-}
-.pulse {
-  --timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
-  --direction: alternate;
-  --fill-mode: none;
-  --iteration-count: infinite;
-}
-
 .reset {
   --name: revert;
   --duration: revert;
@@ -124,20 +140,26 @@ span {
 // Sequence
 .animate.sequence,
 .animate--js.sequence {
+  -webkit-animation: none;
   animation: none;
 
   > span {
     display: inline-block;
   }
   > * {
+    -webkit-animation-name: var(--animation, fade);
+    -webkit-animation-duration: var(--duration, 1s);
+    -webkit-animation-timing-function: var(--timing-function, linear);
+    -webkit-animation-delay: var(--delay, 0s);
+    -webkit-animation-direction: var(--direction, normal);
+    -webkit-animation-iteration-count: var(--iteration-count, 1);
+
     animation-name: var(--animation, fade);
     animation-duration: var(--duration, 1s);
     animation-timing-function: var(--timing-function, linear);
     animation-delay: var(--delay, 0s);
     animation-direction: var(--direction, normal);
     animation-iteration-count: var(--iteration-count, 1);
-    animation-play-state: var(--play-state, paused);
-    opacity: 0;
 
     &:nth-child(1) { --delay: 0.00s; }
     &:nth-child(2) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 1)'; }
@@ -147,11 +169,24 @@ span {
     &:nth-child(6) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 5)'; }
     &:nth-child(7) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 6)'; }
     &:nth-child(8) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 7)'; }
+    &:nth-child(9) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 8)'; }
+    &:nth-child(10) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 9)'; }
+    &:nth-child(11) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 10)'; }
+    &:nth-child(12) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 11)'; }
   }
 }
 
 .animate--js.sequence {
+  > * {
+    -webkit-animation-play-state: var(--play-state, paused);
+    animation-play-state: var(--play-state, paused);
+    opacity: 0;
+  }
   &.in > * {
+    -webkit-animation-name: var(--animation, fade);
+    -webkit-animation-fill-mode: var(--fill-mode, both);
+    -webkit-animation-play-state: var(--play-state, running);
+
     animation-name: var(--animation, fade);
     animation-fill-mode: var(--fill-mode, both);
     animation-play-state: var(--play-state, running);
@@ -195,167 +230,5 @@ span {
 .slideUp          { --animation: slideUp; }
 .slideDown        { --animation: slideDown; }
 
-
-/*
-
-flips
-fades
-rotates
-zooms
-clip-path
-
- */
-
-// Fade animations
-@keyframes fade {
-  0%    { opacity: 0; }
-  100%  { opacity: 1; }
-}
-
-// Translate animations
-@keyframes moveTop {
-  0%    { transform: translate(0, ~'calc(var(--move) * -1)'); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveTopFull {
-  0%    { transform: translate(0, 100%); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveBottom {
-  0%    { transform: translate(0, var(--move)); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveBottomFull {
-  0%    { transform: translate(0, 100%); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveLeft {
-  0%    { transform: translate(~'calc(var(--move) * -1)', 0); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveLeftFull {
-  0%    { transform: translate(100%, 0); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveRight {
-  0%    { transform: translate(var(--move), 0); }
-  100%  { transform: translate(0, 0); }
-}
-@keyframes moveRightFull {
-  0%    { transform: translate(100%, 0); }
-  100%  { transform: translate(0, 0); }
-}
-
-// Rotation animations
-@keyframes rotate {
-  0%    { transform: rotate(var(--rotate)); }
-  100%  { transform: rotate(0); }
-}
-@keyframes rotateFull {
-  0%    { transform: rotate(360deg); }
-  100%  { transform: rotate(0deg); }
-}
-@keyframes rotateHalf {
-  0%    { transform: rotate(180deg); }
-  100%  { transform: rotate(0deg); }
-}
-@keyframes rotateQuarter {
-  0%    { transform: rotate(90deg); }
-  100%  { transform: rotate(0deg); }
-}
-
-// Zooming animations
-@keyframes zoomOut {
-  0%    { transform: scale(~'calc(1 * var(--multiplier, 1))'); }
-  100%  { transform: scale(1.0); }
-}
-@keyframes zoomOutFade {
-  0%    { transform: scale(~'calc(1 * var(--multiplier, 1))'); opacity: 0; }
-  100%  { transform: scale(1.0); opacity: 1; }
-}
-
-@keyframes zoomIn {
-  0%    { transform: scale(~'calc(1 / var(--multiplier, 1))'); }
-  100%  { transform: scale(1.0); }
-}
-@keyframes zoomInFade {
-  0%    { transform: scale(~'calc(1 * var(--multiplier, 1))'); opacity: 0; }
-  100%  { transform: scale(1.0); opacity: 1; }
-}
-
-// 3D Rotation X
-@keyframes rotateX {
-  0%    { transform: perspective(500px) rotateX(~'calc(var(--rotate, 15deg) * var(--multiplier, 1))'); }
-  100%  { transform: perspective(500px) rotateX(0); }
-}
-@keyframes rotateXHalf {
-  0%    { transform: perspective(500px) rotateX(45deg); }
-  100%  { transform: perspective(500px) rotateX(0); }
-}
-@keyframes rotateXFull {
-  0%    { transform: perspective(500px) rotateX(90deg); }
-  100%  { transform: perspective(500px) rotateX(0); }
-}
-
-// 3D Rotation Y
-@keyframes rotateY {
-  0%    { transform: perspective(500px) rotateY(~'calc(var(--rotate, 15deg) * var(--multiplier, 1))'); }
-  100%  { transform: perspective(500px) rotateY(0); }
-}
-@keyframes rotateYHalf {
-  0%    { transform: perspective(500px) rotateY(45deg); }
-  100%  { transform: perspective(500px) rotateY(0); }
-}
-@keyframes rotateYFull {
-  0%    { transform: perspective(500px) rotateY(90deg); }
-  100%  { transform: perspective(500px) rotateY(0); }
-}
-
-// Clip path animations
-@keyframes cutIn {
-  0%    {
-    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-  }
-  100%  {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-
-@keyframes cutInSplit {
-  0%    {
-    -webkit-clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-            clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
-  }
-  100%  {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-
-// Clip path + move animations
-@keyframes slideUp {
-  0%    {
-    transform: translate(0, 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  }
-  100%  {
-    transform: translate(0, 0);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
-@keyframes slideDown {
-  0%    {
-    transform: translate(0, -100%);
-    -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-  }
-  100%  {
-    transform: translate(0, 0);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
+.blur           { --animation: blur; }
+.monochrome       { --animation: monochrome; }

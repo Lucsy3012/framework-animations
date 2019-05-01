@@ -9,18 +9,33 @@
 
     <meta name="author" content="Lucas Dietrich">
     <meta name="audience" content="webdeveloper, developers, designers">
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content="Accessible animations" />
+    <meta itemprop="isFamilyFriendly" content="True" />
+
+    <meta property="og:site_name" content="animations.css">
+    <meta property="og:title" content="Accessible animations – animations.css">
+    <meta property="og:url" content="https://github.com/Lucsy3012/animations/">
+    <meta property="og:image" content="src-example/og-image.jpg">
+    <link rel="shortcut icon" href="src-example/favicon.ico">
 
     <link rel="stylesheet" href="vendor/highlight.min.css">
     <link rel="stylesheet" href="src/css/animations.css">
-    <link rel="stylesheet" href="src/css/example.css">
+    <link rel="stylesheet" href="src-example/example.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
 </head>
 <body>
 
+<nav class="download">
+    <a href="#features">Features</a>
+    <a class="spacer-right" href="#documentation">Documentation</a>
+    <a class="btn" href="animations.zip" download>Download</a>
+    <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">View on Github</a>
+</nav>
+
 <section class="fullsize">
     <div class="inner">
-        <div class="animate" id="tutorial">
+        <div class="animate slideUp sequence" id="tutorial">
             <div class="animate circle"></div>
             <div class="animate block"></div>
             <div class="animate circle"></div>
@@ -28,39 +43,146 @@
         </div>
         <h1>animations.css</h1>
         <h2>Accessible animations</h2>
-        <p class="download">
-            <a class="btn transparent" href="#features">Features</a>
-            <a class="btn transparent" href="#documentation">Documentation</a>
-            <a class="btn">Download</a>
-            <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">View on Github</a>
-        </p>
 
         <!-- Try -->
-        <div>
-            <p class="spacer-large"><small>Try it yourself</small></p>
+        <div class="spacer-large">
             <form id="for-tutorial">
-                <select>
-                    <optgroup label="Standards">
-                        <option value="fade" selected disabled>fade</option>
-                        <option value="rotateX">rotateX</option>
-                        <option value="zoomOut">zoomOut</option>
-                        <option value="zoomOutFade">zoomOutFade</option>
-                    </optgroup>
-                </select>
+                <div class="form-group">
+                    <label for="animation-type-01">Animation Type</label>
+                    <select id="animation-type-01" data-remove="fade,zoomIn,zoomInFade,zoomOut,zoomOutFade,moveTop,moveTopFull,moveBottom,moveBottomFull,moveLeft,moveLeftFull,moveRight,moveRightFull,cutIn,cutInSplit,slideUp,slideDown,rotate,rotateQuarter,rotateHalf,rotateFull,rotateX,rotateXHalf,rotateXFull,rotateY,rotateYHalf,rotateYFull,blur,monochrome">
+                        <option selected disabled>Select an animation</option>
+
+                        <optgroup label="Fade">
+                            <option value="fade">fade</option>
+                        </optgroup>
+
+                        <optgroup label="Zooms">
+                            <option value="zoomIn">zoomIn</option>
+                            <option value="zoomInFade">zoomInFade</option>
+                            <option value="zoomOut">zoomOut</option>
+                            <option value="zoomOutFade">zoomOutFade</option>
+                        </optgroup>
+
+                        <optgroup label="Moving">
+                            <option value="moveTop">moveTop</option>
+                            <option value="moveTopFull">moveTopFull</option>
+                            <option value="moveBottom">moveBottom</option>
+                            <option value="moveBottomFull">moveBottomFull</option>
+                            <option value="moveLeft">moveLeft</option>
+                            <option value="moveLeftFull">moveLeftFull</option>
+                            <option value="moveRight">moveRight</option>
+                            <option value="moveRightFull">moveRightFull</option>
+                        </optgroup>
+
+                        <optgroup label="clip-path masking">
+                            <option value="cutIn">cutIn</option>
+                            <option value="cutInSplit">cutInSplit</option>
+                        </optgroup>
+
+                        <optgroup label="clip-path + moving">
+                            <option value="slideUp">slideUp</option>
+                            <option value="slideDown">slideDown</option>
+                        </optgroup>
+
+                        <optgroup label="Rotate 2D">
+                            <option value="rotate">rotate</option>
+                            <option value="rotateQuarter">rotateQuarter</option>
+                            <option value="rotateHalf">rotateHalf</option>
+                            <option value="rotateFull">rotateFull</option>
+                        </optgroup>
+
+                        <optgroup label="Rotate 3D X axis">
+                            <option value="rotateX">rotateX</option>
+                            <option value="rotateXHalf">rotateXHalf</option>
+                            <option value="rotateXFull">rotateXFull</option>
+                        </optgroup>
+
+                        <optgroup label="Rotate 3D Y axis">
+                            <option value="rotateY">rotateY</option>
+                            <option value="rotateYHalf">rotateYHalf</option>
+                            <option value="rotateYFull">rotateYFull</option>
+                        </optgroup>
+
+                        <optgroup label="Filters">
+                            <option value="blur">blur</option>
+                            <option value="monochrome">monochrome</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="animation-timing-function-01">Animation Properties</label>
+                    <select id="animation-timing-function-01" data-remove="linear,ease,ease-in,ease-out,cubic-in,cubic-out,cubic-in-out,push,pull">
+                        <option selected disabled>Timing function</option>
+                        <option value="linear">linear</option>
+                        <option value="ease">ease</option>
+                        <option value="ease-in">ease-in</option>
+                        <option value="ease-out">ease-out</option>
+                        <option value="cubic-in">cubic-in</option>
+                        <option value="cubic-out">cubic-out</option>
+                        <option value="cubic-in-out">cubic-in-out</option>
+                        <option value="push">push</option>
+                        <option value="pull">pull</option>
+                    </select>
+                    <select id="animation-duration-01" data-remove="duration-xs,duration-s,duration-m,duration-l,duration-xl,reset-duration">
+                        <option selected disabled>Duration</option>
+                        <option value="duration-xs">duration-xs</option>
+                        <option value="duration-s">duration-s</option>
+                        <option value="duration-m">duration-m</option>
+                        <option value="duration-l">duration-l</option>
+                        <option value="duration-xl">duration-xl</option>
+                        <option value="reset-duration">reset-duration</option>
+                    </select>
+                    <select id="animation-delay-01" data-remove="delay-xs,delay-s,delay-m,delay-l,delay-xl,reset-delay">
+                        <option selected disabled>Delaying</option>
+                        <option value="delay-xs">delay-xs</option>
+                        <option value="delay-s">delay-s</option>
+                        <option value="delay-m">delay-m</option>
+                        <option value="delay-l">delay-l</option>
+                        <option value="delay-xl">delay-xl</option>
+                        <option value="reset-delay">reset-delay</option>
+                    </select>
+                    <select id="animation-direction-01" data-remove="reverse,alternate,alternate-reverse,reset-direction">
+                        <option selected disabled>Direction</option>
+                        <option value="reverse">reverse</option>
+                        <option value="alternate">alternate</option>
+                        <option value="alternate-reverse">alternate-reverse</option>
+                        <option value="reset-direction">reset-direction</option>
+                    </select>
+                    <small class="smaller">+ the other animation properties!</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="animation-classes">Special classes</label>
+                    <select id="animation-classes" data-remove="loop,pulse">
+                        <option selected disabled>Looping</option>
+                        <option value="">No loop (default)</option>
+                        <option value="loop">loop</option>
+                        <option value="pulse">pulse</option>
+                    </select>
+                    <select id="animation-sequence" data-remove="sequence,in">
+                        <option selected disabled>Sequencing</option>
+                        <option value="sequence">sequence</option>
+                        <option value="">Remove sequence</option>
+                    </select>
+                </div>
             </form>
+            <div class="spacer">
+                <a class="trigger-animation btn" data-trigger="tutorial">Test animation</a>
+            </div>
         </div>
 
         <pre>
-            <code class="block hljs" id="code-example"></code>
+            <code class="block hljs html" id="code-example"></code>
         </pre>
     </div>
 </section>
 
 <section id="features">
     <div class="grid">
-        <div class="left">
+        <div class="left image">
             <div class="img-holder">
-                <img src="http://placehold.it/920x760" alt="" class="animate--js" id="example-trigger">
+                <img src="src-example/scrolling.svg" alt="" class="animate--js" id="example-trigger">
             </div>
         </div>
         <div class="right">
@@ -78,11 +200,11 @@
             <p>You can stack different types of animations on top of each other. This will result in less code and way more options!</p>
             <a class="trigger-animation btn spacer" data-trigger="example-combine">Restart animation</a>
         </div>
-        <div class="right">
+        <div class="right image">
             <div class="img-holder">
                 <div class="animate--js zoomOutFade" id="example-combine">
                     <div class="animate--js rotateX">
-                        <img src="http://placehold.it/920x760" alt="" class="animate--js cutIn">
+                        <img src="src-example/combine.svg" alt="" class="animate--js cutIn">
                     </div>
                 </div>
             </div>
@@ -92,9 +214,9 @@
 
 <section>
     <div class="grid">
-        <div class="left">
+        <div class="left image">
             <div class="img-holder">
-                <img src="http://placehold.it/920x760" alt="" class="animate--js duration-l delay-s cutInSplit" id="example-properties">
+                <img src="src-example/define.svg" alt="" class="animate--js duration-l delay-s cutInSplit" id="example-properties">
             </div>
         </div>
         <div class="right">
@@ -112,10 +234,10 @@
             <p>The foundation of animations.css are <a href="https://drafts.csswg.org/css-variables/" target="_blank">custom properties</a> - an powerful addition to CSS3. This allows for high customization and readability.</p>
             <a class="trigger-animation btn spacer" data-trigger="example-custom-properties">Restart animation</a>
         </div>
-        <div class="right">
+        <div class="right image">
             <div class="img-holder">
                 <div class="animate--js moveBottom duration-l push" id="example-custom-properties">
-                    <img src="http://placehold.it/920x760" alt="" class="animate--js fade pull">
+                    <img src="src-example/custom-properties.svg" alt="" class="animate--js fade pull">
                 </div>
             </div>
         </div>
@@ -124,7 +246,7 @@
 
 <section>
     <div class="grid">
-        <div class="left">
+        <div class="left image">
             <div class="img-holder">
                 <div class="animate--js sequence slideUp" id="example-sequence">
                     <div></div>
@@ -151,8 +273,8 @@
             <h2>How to get animations.css running</h2>
         </div>
         <div class="left">
-            <h3>Option A: Download the files</h3>
-            <p>Luckily the library is very lightweight and can be downloaded <a>here</a>. The package contains the <code class="inline">animations.min.css</code> and an <code class="inline">animate.min.js</code> file. While the JS file is optional (but recommended) the CSS file is mandatory.</p>
+            <h3>Download the files</h3>
+            <p>Luckily the library is very lightweight and can be downloaded <a href="animations.zip" download>here</a>. The package contains the <code class="inline">animations.min.css</code> and an <code class="inline">animate.min.js</code> file. While the JS file is optional (but recommended) the CSS file is mandatory.</p>
             <h4>Then link them to your project:</h4>
             <pre>
                 <code class="hljs block">
@@ -167,25 +289,16 @@
                 </code>
             </pre>
         </div>
-        <div class="right">
-            <h3>Option B: Link to the files directly</h3>
-            <p>If you desire to stay updated, don't want or can't implement CSS and JS files to your project you can link to them as well.</p>
-            <pre>
-                <code class="hljs html block">
-                    &lt;!-- in the &lt;head&gt; --&gt;<br/>
-                    &lt;link rel="stylesheet" href="..."&gt;
-                </code>
-            </pre>
-        </div>
 
-        <!-- Start -->
-        <div class="both separator">
+        <!-- Use -->
+        <div class="both separator"></div>
+        <div class="both">
             <div class="title">Use</div>
             <h2>How to use animations.css</h2>
         </div>
         <div class="left">
-            <h3>Animate whenever</h3>
-            <p>An animation normally starts when the CSS file has been loaded. It doesn't need to be visible for the user to be animated.</p>
+            <h3>1. Animate instantly</h3>
+            <p>This option is best suited if you intend to animate a looping element rather than page revealing animations.</p>
             <pre>
                 <code class="hljs block">
                     &lt;!-- basic fade animation --&gt;<br/>
@@ -201,8 +314,8 @@
             </pre>
         </div>
         <div class="right">
-            <h3>Animate when scrolled to</h3>
-            <p>A more dynamic and useful approach is the .animate--js class, that let's you start an animation when the user reaches the element.</p>
+            <h3>2. Animate when scrolled to</h3>
+            <p>This option is a more dynamic and useful approach. It let's you start an animation when the user reaches the element. Be sure to include the <code class="inline">animate.min.js</code> when using.</p>
             <pre>
                 <code class="hljs html block">
                     &lt;!-- basic fade animation --&gt;<br/>
@@ -218,51 +331,429 @@
             </pre>
         </div>
 
-        <!-- more -->
-        <div class="left separator">
-            <div class="sticky">
-                <div class="title">Documentation</div>
-                <h2>Built-in classes</h2>
-                <ul>
-                    <li><a href="#animate">.animate</a></li>
-                    <li><a href="#animate--js">.animate--js</a></li>
-                    <li><a href="#animation-properties">animation-properties</a></li>
-                </ul>
+        <!-- Documentation -->
+        <div class="both separator"></div>
+        <div class="both">
+            <div class="title">Documentation</div>
+            <h2>The nature of animations.css explained</h2>
+            <p>Note that all of the following classes and values are automatically inherited by their ancestors. That means if animations get stacked on top of each other they obey the same ruleset, unless you overwrite properties you want to change for the child (and their ancestors). <a href="#example-combine">Here</a> you can see how that could look like. Go ahead and inspect the linked example if you need further understanding.</p>
+
+            <pre>
+                <code class="hljs html block">
+                    &lt;!-- this animation will "zoom in" with the "ease"-function --&gt;<br/>
+                    &lt;div class="animate--js zoomIn ease"&gt;<br/>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- this animation will "rotate at the X axis" with the "ease"-function. But it will be delayed and take longer to complete than parent on top of that --&gt;<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="animate--js rotateX delay-s duration-l"&gt;&lt;/div&gt;<br/>
+                    &lt;/div&gt;<br/>
+                    <br/>
+                    &lt;!-- together they make up for a whole new animation --&gt;<br/>
+                </code>
+            </pre>
+        </div>
+
+        <!-- Animation properties -->
+        <div class="both">
+            <h2>Animation types</h2>
+        </div>
+        <div class="both" id="animation-types">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Name<br/><small class="smaller">Is valid as .class and @keyframe</small></th>
+                        <th>Description<br/><small class="smaller">Will apply to ancestors as well if not overwritten</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="category">Fade</td>
+                        <td class="name">fade</td>
+                        <td class="description">(Fallback) Fades the element from <b>0</b> opacity to <b>1</b>.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="category">Zooming</td>
+                        <td>zoomIn</td>
+                        <td>Scale the element from the value of <b>1 / --zoom (default: 1.25)</b> to <b>1</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>zoomInFade</td>
+                        <td>Scale the element from the value of <b>1 / --zoom (default: 1.25)</b> to <b>1</b> and fades from <b>0</b> to <b>1</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>zoomOut</td>
+                        <td>Scale the element from the value of <b>--zoom (default: 1.25)</b> to <b>1</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>zoomOutFade</td>
+                        <td>Scale the element from the value of <b>--zoom (default: 1.25)</b> to <b>1</b> and fades from <b>0</b> to <b>1</b>.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="8" class="category">Moving</td>
+                        <td>moveTop</td>
+                        <td>Moves the element from top to bottom by the value of <b>--move (default: 25%)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>moveTopFull</td>
+                        <td>Moves the element from top to bottom by <b>100%</b> of the own height.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottom</td>
+                        <td>Moves the element from bottom to top by the value of <b>--move (default: 25%)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>moveBottomFull</td>
+                        <td>Moves the element from bottom to top by <b>100%</b> of the own height.</td>
+                    </tr>
+                    <tr>
+                        <td>moveLeft</td>
+                        <td>Moves the element from left to right by the value of <b>--move (default: 25%)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>moveLeftFull</td>
+                        <td>Moves the element from left to right by <b>100%</b> of the own height.</td>
+                    </tr>
+                    <tr>
+                        <td>moveRight</td>
+                        <td>Moves the element from right to left by the value of <b>--move (default: 25%)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>moveRightFull</td>
+                        <td>Moves the element from right to left by <b>100%</b> of the own height.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="category">Masking</td>
+                        <td>cutIn</td>
+                        <td>Unmasks the element from bottom to top by via clip-path.</td>
+                    </tr>
+                    <tr>
+                        <td>cutInSplit</td>
+                        <td>Unmasks the element from the middle sideways outwards via clip-path.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="category">Sliding<br/><small class="smaller">(moving + masking)</small></td>
+                        <td>slideUp</td>
+                        <td>Unveils the element from bottom to top by combining moving and clip-path.</td>
+                    </tr>
+                    <tr>
+                        <td>slideDown</td>
+                        <td>Unveils the element from top to bottom by combining moving and clip-path.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4" class="category">Rotate</td>
+                        <td>rotate</td>
+                        <td>Rotates the element by the value of <b>--rotate (default: 45deg)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateQuarter</td>
+                        <td>Rotates the element by <b>90 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateHalf</td>
+                        <td>Rotates the element by <b>180 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateFull</td>
+                        <td>Rotates the element by <b>360 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6" class="category">Rotate 3D</td>
+                        <td>rotateX</td>
+                        <td>Rotates the element on the X axis by the value of <b>--rotate (default: 45deg)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateXHalf</td>
+                        <td>Rotates the element on the X axis by <b>180 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateXFull</td>
+                        <td>Rotates the element on the X axis by <b>360 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateY</td>
+                        <td>Rotates the element on the Y axis by the value of <b>--rotate (default: 45deg)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateYHalf</td>
+                        <td>Rotates the element on the Y axis by <b>180 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>rotateYFull</td>
+                        <td>Rotates the element on the Y axis by <b>360 degrees</b>.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="category">Filter</td>
+                        <td>blur</td>
+                        <td>Focuses on the element from the blur-value of <b>--blur (default: 10px)</b> to <b>0</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>monochrome</td>
+                        <td>Saturates the element from <b>0 (black and white)</b> to <b>1 (regular colors)</b>.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Animation properties -->
+        <div class="both">
+            <h2>Animation properties</h2>
+            <p>You can learn more about the basics of animation properties <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">here</a>.</p>
+        </div>
+        <div class="both" id="animation-properties">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Options</th>
+                        <th>Description<br/><small class="smaller">Will apply to ancestors as well if not overwritten</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="category">animation-name</td>
+                        <td>--animation</td>
+                        <td>Apply a custom @keyframe animation to the element and all ancestors.</td>
+                    </tr>
+                    <tr>
+                        <td>see <a href="#animation-types">animation types table</a></td>
+                        <td>Specifies which @keyframe animation you want to play.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="10" class="category">animation-timing-function</td>
+                        <td>--timing-function</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.linear</td>
+                        <td>(Fallback) Changes the timing-function to the value <b>"linear"</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.ease</td>
+                        <td>Changes the timing-function to the value <b>"ease"</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.ease-in</td>
+                        <td>Changes the timing-function to the value <b>"ease-in"</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.ease-out</td>
+                        <td>Changes the timing-function to the value <b>"ease-out"</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.cubic-in</td>
+                        <td>Changes the timing-function to the value <b>cubic-bezier(0.55, 0.06, 0.68, 0.19)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.cubic-out</td>
+                        <td>Changes the timing-function to the value <b>cubic-bezier(0.22, 0.61, 0.36, 1)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.cubic-in-out</td>
+                        <td>Changes the timing-function to the value <b>cubic-bezier(0.65, 0.05, 0.36, 1)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.push</td>
+                        <td>Changes the timing-function to the value <b>cubic-bezier(0.37, 0.37, 0.12, 1.01)</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.pull</td>
+                        <td>Changes the timing-function to the value <b>cubic-bezier(0.65, 0.29, 0.41, 1.07)</b>.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="7" class="category">animation-duration</td>
+                        <td>--duration</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.duration-xs</td>
+                        <td>Changes the duration to the value <b>0.25s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.duration-s</td>
+                        <td>Changes the duration to the value <b>0.5s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.duration-m</td>
+                        <td>(Fallback) Changes the duration to the value <b>1s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.duration-l</td>
+                        <td>Changes the duration to the value <b>2s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.duration-xl</td>
+                        <td>Changes the duration to the value <b>5s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.reset-duration</td>
+                        <td>Resets to the original value of <b>--duration (default: unset)</b> or the <b>fallback (1s)</b> if unset.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="7" class="category">animation-delay</td>
+                        <td>--delay</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.delay-xs</td>
+                        <td>Delays the start of the animation by <b>0.1s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.delay-s</td>
+                        <td>Delays the start of the animation by <b>0.25s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.delay-m</td>
+                        <td>Delays the start of the animation by <b>0.5s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.delay-l</td>
+                        <td>Delays the start of the animation by <b>1s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.delay-xl</td>
+                        <td>Delays the start of the animation by <b>2s</b>.</td>
+                    </tr>
+                    <tr>
+                        <td>.reset-delay</td>
+                        <td>Resets to the original value of <b>--delay (default: unset)</b> or the <b>fallback (0s)</b> if unset.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="5" class="category">animation-direction</td>
+                        <td>--direction</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.reverse</td>
+                        <td>Lets the animation play in <b>reverse</b> order.</td>
+                    </tr>
+                    <tr>
+                        <td>.alternate</td>
+                        <td>Lets the animation play once forward and then reverse again.<br/><small class="smaller">Animation needs to be looping to have an effect.</small></td>
+                    </tr>
+                    <tr>
+                        <td>.alternate-reverse</td>
+                        <td>Lets the animation play once reverse and then forward again.<br/><small class="smaller">Animation needs to be looping to have an effect.</small></td>
+                    </tr>
+                    <tr>
+                        <td>.reset-direction</td>
+                        <td>Resets to the original value of <b>--direction (default: unset)</b> or the <b>fallback (normal)</b> if unset.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="5" class="category">animation-fill-mode</td>
+                        <td>--fill-mode</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.forwards</td>
+                        <td>Applies all CSS properties set within the animation after completion.</td>
+                    </tr>
+                    <tr>
+                        <td>.backwards</td>
+                        <td>Applies all CSS properties set within the animation before the animation began.</td>
+                    </tr>
+                    <tr>
+                        <td>.both</td>
+                        <td>Applies all CSS properties set within the animation before and after the animation played.</td>
+                    </tr>
+                    <tr>
+                        <td>.reset-fill-mode</td>
+                        <td>Resets to the original value of <b>--fill-mode (default: unset)</b> or the <b>fallback (both)</b> if unset.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="4" class="category">animation-iteration-count</td>
+                        <td>--iteration-count</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.once</td>
+                        <td>Plays the animation once.</td>
+                    </tr>
+                    <tr>
+                        <td>.infinite</td>
+                        <td>Plays the animation indefinitely, creating a looping animation.</td>
+                    </tr>
+                    <tr>
+                        <td>.reset-iteration-count</td>
+                        <td>Resets to the original value of <b>--iteration-count (default: unset)</b> or the <b>fallback (1)</b> if unset.</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="4" class="category">animation-play-state</td>
+                        <td>--play-state</td>
+                        <td>Overwrite to set a basic value for your animations.</td>
+                    </tr>
+                    <tr>
+                        <td>.paused</td>
+                        <td>Pauses the animation.</td>
+                    </tr>
+                    <tr>
+                        <td>.running</td>
+                        <td>Starts or continues the animation.</td>
+                    </tr>
+                    <tr>
+                        <td>.reset-play-state</td>
+                        <td>Resets to the original value of <b>--play-state (default: unset)</b> or the <b>fallback (running)</b> if unset.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Special classes -->
+        <div class="both">
+            <h2>Special classes</h2>
+        </div>
+        <div class="both" id="special-classes">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="130">Name</th>
+                        <th width="170">Class</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="category">Loop</td>
+                        <td>.loop</td>
+                        <td>Sets the respective properties to create a loop (forward only).</td>
+                    </tr>
+                    <tr>
+                        <td class="category">Pulsing loop</td>
+                        <td>.pulse</td>
+                        <td>Sets the respective properties to create a loop that pulses (forward then backwards again).</td>
+                    </tr>
+                    <tr>
+                        <td class="category" rowspan="2">Sequence</td>
+                        <td>.sequence</td>
+                        <td>Add to .animate or .animate--js. If set it applies the animation to all direct children individually.<br/>Each animation gets delayed by the value of <b>--sequence-steps</b> multiplied by the count at which the child sits.</td>
+                    </tr>
+                    <tr>
+                        <td>--sequence-steps</td>
+                        <td>Defines the delay each children gets. Default: 0.1s<br/>The first child has a delay of --sequence-steps * 0, the second --sequence-steps * 1 and so on.</td>
+                    </tr>
+                    <tr>
+                        <td class="category">Reset</td>
+                        <td>.reset</td>
+                        <td>Resets all animation properties to their original value or fallback.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="both text-center">
+            <h2 class="spacer-large">Ready to start?</h2>
+            <div class="spacer-large">
+                <a class="btn" href="animations.zip" download>Download now</a>
+                <a class="btn primary" href="https://github.com/Lucsy3012/animations/" target="_blank">View on Github</a>
             </div>
         </div>
-        <div class="right">
-            <h4>.animate</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam assumenda atque beatae cum cumque dolor, eaque esse excepturi hic inventore iure molestiae pariatur perspiciatis placeat provident qui, reiciendis voluptatem!</p>
-            <h4>.animate--js</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam assumenda atque beatae cum cumque dolor, eaque esse excepturi hic inventore iure molestiae pariatur perspiciatis placeat provident qui, reiciendis voluptatem!</p>
-        </div>
     </div>
-
-    <!--
-    <div class="grid-large">
-        <div class="both">
-            <div class="title">Ready to start?</div>
-            <h2>The animation-property</h2>
-            <ul>
-                <li><a href="#animation-name">animation-name</a></li>
-                <li><a href="#animation-duration">animation-duration</a></li>
-            </ul>
-        </div>
-        <table class="right">
-            <tr>
-                <td colspan="2">animations</td>
-            </tr>
-            <tr>
-                <td>.animate</td>
-                <td>Starts an animations</td>
-            </tr>
-            <tr>
-                <td>.animate--js</td>
-                <td>Starts an animations when scrolled by (requires animate.js)</td>
-            </tr>
-        </table>
-    </div>
-    -->
 </section>
 
 <script src="vendor/jquery.min.js"></script>
@@ -276,7 +767,7 @@
         e.preventDefault();
 
         var href = $(this).attr('href'),
-            offset = $(href).offset().top;
+            offset = $(href).offset().top - $('nav.download').outerHeight();
 
         $('html, body').animate({
             scrollTop: offset
@@ -294,22 +785,38 @@
             $clone = $('#' + data),
             $cloneParent = $clone.parent();
 
-        $clone.clone().appendTo($cloneParent);
+        $clone.clone().prependTo($cloneParent);
         $clone.remove();
     }
     
     // Tutorial
-    var removeAnimation = ['fade', 'rotateX', 'zoomOut', 'zoomOutFade'];
-    var removeClasses = ['loop', 'pulse', 'sequence', 'zoomOutFade'];
+    var values = [];
+    var $tutorialSelects = $('#for-tutorial select, #for-tutorial input[type="checkbox"]');
 
-    $('#for-tutorial select').on('change', function() {
-        var $receiver = $('#tutorial'),
-            val = $(this).val();
+    getTutorialClasses();
 
-        $receiver.removeClass(removeAnimation);
-        $receiver.addClass(val);
+    $tutorialSelects.on('change', function() {
+        values = [];
+
+        $tutorialSelects.each(function() {
+            var remove = $(this).attr('data-remove').split(',');
+            switchClasses($(this), remove);
+        });
+
         getTutorialClasses();
     });
+
+    function switchClasses($select, remove) {
+        var $tutorialReceiver = $('#tutorial');
+        var val = $select.val();
+
+        if (val !== null) {
+            values.push(val);
+        }
+
+        $tutorialReceiver.removeClass(remove);
+        $tutorialReceiver.addClass(values);
+    }
 
     function getTutorialClasses() {
         var classes = $('#tutorial').attr('class');
@@ -317,6 +824,10 @@
 
         $('#code-example').html(insert);
     }
+
+    $(window).on('scroll resize', function() {
+        $('nav.download').toggleClass('fixed', $(this).scrollTop() > 10);
+    })
 </script>
 
 <script>hljs.initHighlightingOnLoad();</script>

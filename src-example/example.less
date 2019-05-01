@@ -1,6 +1,6 @@
 @import url('https://rsms.me/inter/inter.css');
 
-@accent-color: #ffa519;
+@accent-color: #4836a3;
 @gray: #f7f7f7;
 
 * { box-sizing: border-box; }
@@ -24,7 +24,7 @@ section {
     background-color: @gray;
   }
   &.fullsize {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .inner {
@@ -73,14 +73,25 @@ section {
 
     dl {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 160px auto;
       grid-column: ~'1 / -1';
 
       dt {
         grid-column: 1;
+        padding: 5px 0;
+        font-weight: 800;
+        font-size: 14px;
       }
       dd {
         grid-column: 2;
+        margin-left: 0;
+        padding: 5px 0;
+        font-size: 14px;
+
+        ~ dt,
+        ~ dd {
+          border-top: 1px solid #e2e1e1;
+        }
       }
     }
   }
@@ -120,6 +131,7 @@ h3, .h3 {
   }
 }
 
+h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5 {
@@ -128,6 +140,12 @@ h5, .h5 {
     line-height: 2;
     color: fade(#000, 50);
   }
+}
+
+.smaller {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: .5;
 }
 
 a {
@@ -143,7 +161,7 @@ a {
 
 .btn {
   display: inline-block;
-  padding: 8px 22px;
+  padding: 8px 20px;
   font-weight: 500;
   border-radius: 4px;
   font-size: 14px;
@@ -188,12 +206,16 @@ a {
   }
 }
 
+.spacer-right {
+  margin-right: 10px;
+}
+
 .spacer {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .spacer-large {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 code {
@@ -209,10 +231,10 @@ code {
     position: relative;
     padding: 10px 18px;
     border-radius: 4px;
-    background-color: #e2e1e1;
+    background-color: #f1f1f1;
   }
   &#code-example {
-    margin-top: 30px;
+    margin-top: 20px;
     background: none;
   }
 }
@@ -227,7 +249,7 @@ pre {
 }
 
 #tutorial {
-  margin: 0 auto 50px;
+  margin: 0 auto 30px;
 
   * {
     display: inline-block;
@@ -246,18 +268,54 @@ pre {
   }
 }
 
-.download {
+nav {
   position: fixed;
-  top: 30px;
-  right: 40px;
+  z-index: 100;
+  width: 100%;
+  padding: 20px 30px;
+  text-align: right;
+  background-color: #fff;
+  transition: all .2s ease;
 
-  .helper {
+  a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  &.fixed {
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  }
+}
+
+form {
+  label {
     display: block;
-    margin-top: 15px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  select {
+    -ms-progress-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-top: 5px;
+    padding: 10px 14px;
+    font-size: 13px;
+    border-radius: 4px;
+    min-width: 160px;
+    background-color: #f7f6f6;
+    border: 0;
+  }
 
-    a {
-      font-size: 12px;
-      color: #777;
+  &#for-tutorial {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+
+    .form-group {
+      text-align: left;
+
+      select {
+        width: 100%;
+      }
     }
   }
 }
@@ -269,7 +327,10 @@ pre {
   grid-gap: 10px;
 
   > div {
-    background-color: #ccc;
+    &:nth-child(4) { background-color: @accent-color; }
+    &:nth-child(3) { background-color: fade(@accent-color, 75); }
+    &:nth-child(2) { background-color: fade(@accent-color, 50); }
+    &:nth-child(1) { background-color: fade(@accent-color, 25); }
   }
 }
 
@@ -278,13 +339,103 @@ pre {
     height: 100%;
     align-content: flex-start;
   }
-  .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: var(--gutter, 60px);
-  }
   .separator {
     border-top: 1px solid #e2e1e1;
-    padding-top: var(--gutter, 60px);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    &:hover {
+      td {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+  td, th {
+    padding: 8px 16px;
+    font-size: 14px;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #e2e1e1;
+  }
+  th {
+    background-color: #f1f1f1;
+  }
+  .category {
+    font-weight: 700;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  :root {
+    --gutter: 40px;
+  }
+
+  h1, .h1, .title {
+    font-size: 50px;
+  }
+  nav {
+    padding: 15px 20px;
+
+    a {
+      font-size: 12px;
+    }
+  }
+  .btn {
+    font-size: 12px;
+  }
+  form#for-tutorial {
+    grid-template-columns: 100%;
+    grid-gap: 20px;
+  }
+  section {
+    padding: 5vh 0;
+
+    .grid, .grid-large {
+      grid-template-columns: 100%;
+      max-height: unset;
+
+      .left, .right {
+        grid-column: unset;
+
+        &.image {
+          grid-row: 1;
+        }
+      }
+    }
+    &.fullsize {
+      padding: 70px 0 0;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1, .h1, .title {
+    font-size: 30px;
+  }
+  h2, .h2,
+  h3, .h3 {
+    font-size: 18px;
+  }
+  table {
+    th, td, a {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+  .spacer {
+    margin-top: 15px;
+  }
+  .spacer-large {
+    margin-top: 30px;
   }
 }

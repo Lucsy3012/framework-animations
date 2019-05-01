@@ -1,30 +1,29 @@
 # animations
-A CSS library that contains a list of useful keyframe animations to include in your project.
-
-# Work in progress!
+A CSS library that contains a list of useful keyframe animations and possibilites to combine different styles to include in your project.
 
 ## Example file
-At [...] you can see how `animations.css` works.
+At <a href="https://lucsy3012.github.io">https://lucsy3012.github.io</a> you can see how animations.css works in action. There you'll find the documentation, a small setup guide and of course the download as well. 
 
 ## How to use
-Simply grab the `animations.css` or `animations.min.css` and link it within your project. You can download it and share it or you can use the following link to directly link to newest version. [...]
-When the file is linked to your project you can use the full range of pre-defined animations in your own CSS file like this:
+Simply grab the `animations.min.css` or `animate.min.js` and link it within your project.
+When the CSS file is linked to your project you can use the full range of pre-defined animations and properties in your HTML like this:
 
-    .example {
-        animation-name: fade;
-        animation-duration: 1s;
-        animation-timing-function: ease;
-    }
+    <!-- gets instantly animated -->
+    <div class="animate">
+        <img src="some/file.img" />
+    </div>
     
-    .short {
-        animation: 1s fade ease;
-    }
+    <!-- animation is delayed until user reaches it -->
+    <div class="animate--js">
+        <img src="some/file.img" />
+    </div>
     
-See a full documentation for the usage of the *animation* property at https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations for further instructions.
-
-## Features
-Custom Properties
---multiplier
-
-## Additional features
-I've also included a small jQuery script `animate.js` that lets you take full advantage of your animations. It searches for `.animate` classes within your file and applies the `.in` class to this specific element if it appears on your device. This allows you to delay an animation and trigger it when the user first encounters the element. 
+## jQuery
+With the tiny jQuery script `animate.min.js` you can take full advantage of your animations. It searches for `.animate--js` classes within your file and applies the `.in` class to this specific element if it appears on your device. This allows you to delay an animation and trigger it when the user first encounters the element.
+    
+## Why animations.css?
+* Instant library to *useful* standard keyframe animations
+* Combine multiple animation types and properties to create your own animations without extending the CSS
+* Built with Custom Properties which allows for accessible customization
+* CSS-only sequence function
+* Delay the animation until the user arrives at the element (requires JS) 
