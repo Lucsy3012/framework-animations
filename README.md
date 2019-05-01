@@ -1,8 +1,8 @@
 # animations
 A CSS library that contains a list of useful keyframe animations and possibilites to combine different styles to include in your project.
 
-## Example file
-At <a href="https://lucsy3012.github.io">https://lucsy3012.github.io</a> you can see how animations.css works in action. There you'll find the documentation, a small setup guide and of course the download as well. 
+## Example
+At <a href="http://animations.lucasdietrich.de/">http://animations.lucasdietrich.de/</a> you can see how animations.css works in action. There you'll find the documentation, a small setup guide and of course the download as well. 
 
 ## How to use
 Simply grab the `animations.min.css` or `animate.min.js` and link it within your project.
