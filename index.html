@@ -40,7 +40,7 @@
             <div class="animate circle"></div>
             <div class="animate block"></div>
         </div>
-        <h1>animations.css</h1>
+        <h1 class="animate--js sequence sequence-sliced slideUpFade">animations.css</h1>
         <h2>Accessible animations</h2>
 
         <!-- Try -->
@@ -79,8 +79,9 @@
                         </optgroup>
 
                         <optgroup label="clip-path + moving">
-                            <option value="slideUp">slideUp</option>
                             <option value="slideDown">slideDown</option>
+                            <option value="slideUp">slideUp</option>
+                            <option value="slideUpFade">slideUpFade</option>
                         </optgroup>
 
                         <optgroup label="Rotate 2D">
@@ -268,7 +269,7 @@
 
         <!-- Setup -->
         <div class="both">
-            <div class="title">Setup</div>
+            <div class="title animate--js sequence sequence-sliced slideUpFade">Setup</div>
             <h2>How to get animations.css running</h2>
         </div>
         <div class="left">
@@ -292,7 +293,7 @@
         <!-- Use -->
         <div class="both separator"></div>
         <div class="both">
-            <div class="title">Use</div>
+            <div class="title animate--js sequence sequence-sliced slideUpFade">Use</div>
             <h2>How to use animations.css</h2>
         </div>
         <div class="left">
@@ -333,7 +334,7 @@
         <!-- Documentation -->
         <div class="both separator"></div>
         <div class="both">
-            <div class="title">Documentation</div>
+            <div class="title animate--js sequence sequence-sliced slideUpFade">Documentation</div>
             <h2>The nature of animations.css explained</h2>
             <p>Note that all of the following classes and values are automatically inherited by their ancestors. That means if animations get stacked on top of each other they obey the same ruleset, unless you overwrite properties you want to change for the child (and their ancestors). <a href="#example-combine">Here</a> you can see how that could look like. Go ahead and inspect the linked example if you need further understanding.</p>
 
@@ -430,13 +431,17 @@
                         <td>Unmasks the element from the middle sideways outwards via clip-path.</td>
                     </tr>
                     <tr>
-                        <td rowspan="2" class="category">Sliding<br/><small class="smaller">(moving + masking)</small></td>
+                        <td rowspan="3" class="category">Sliding<br/><small class="smaller">(moving + masking)</small></td>
+                        <td>slideDown</td>
+                        <td>Unveils the element from top to bottom by combining moving and clip-path.</td>
+                    </tr>
+                    <tr>
                         <td>slideUp</td>
                         <td>Unveils the element from bottom to top by combining moving and clip-path.</td>
                     </tr>
                     <tr>
-                        <td>slideDown</td>
-                        <td>Unveils the element from top to bottom by combining moving and clip-path.</td>
+                        <td>slideUpFade</td>
+                        <td>Unveils the element from bottom to top by combining moving and clip-path and fades it in.</td>
                     </tr>
                     <tr>
                         <td rowspan="4" class="category">Rotate</td>
@@ -728,9 +733,13 @@
                         <td>Sets the respective properties to create a loop that pulses (forward then backwards again).</td>
                     </tr>
                     <tr>
-                        <td class="category" rowspan="2">Sequence</td>
+                        <td class="category" rowspan="3">Sequence</td>
                         <td>.sequence</td>
                         <td>Add to .animate or .animate--js. If set it applies the animation to all direct children individually.<br/>Each animation gets delayed by the value of <b>--sequence-steps</b> multiplied by the count at which the child sits.</td>
+                    </tr>
+                    <tr>
+                        <td>.sequence-sliced</td>
+                        <td>Add to .sequence to split each character within the element into a separate &lt;span&gt;. Useful for title sequences.</td>
                     </tr>
                     <tr>
                         <td>--sequence-steps</td>

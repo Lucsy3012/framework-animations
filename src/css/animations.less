@@ -173,6 +173,9 @@ span {
     &:nth-child(10) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 9)'; }
     &:nth-child(11) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 10)'; }
     &:nth-child(12) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 11)'; }
+    &:nth-child(13) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 12)'; }
+    &:nth-child(14) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 13)'; }
+    &:nth-child(15) { --delay: ~'calc(var(--sequence-steps, 0.1s) * 14)'; }
   }
 }
 
@@ -192,6 +195,10 @@ span {
     animation-play-state: var(--play-state, running);
     opacity: 1;
   }
+}
+
+.sequence-sliced {
+  --sequence-steps: 0.025s;
 }
 
 // Animations
@@ -227,8 +234,9 @@ span {
 .cutIn            { --animation: cutIn; }
 .cutInSplit       { --animation: cutInSplit; }
 
-.slideUp          { --animation: slideUp; }
 .slideDown        { --animation: slideDown; }
+.slideUp          { --animation: slideUp; }
+.slideUpFade      { --animation: slideUpFade; }
 
-.blur           { --animation: blur; }
+.blur             { --animation: blur; }
 .monochrome       { --animation: monochrome; }

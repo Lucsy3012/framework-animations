@@ -446,22 +446,6 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
-@keyframes slideUp {
-  0% {
-    -webkit-transform: translate(0, 100%);
-    -ms-transform: translate(0, 100%);
-    transform: translate(0, 100%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    transform: translate(0, 0);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  }
-}
 @-webkit-keyframes slideDown {
   0% {
     -webkit-transform: translate(0, -100%);
@@ -488,6 +472,80 @@
     transform: translate(0, 0);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translate(0, 100%);
+    -ms-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translate(0, 100%);
+    -ms-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@-webkit-keyframes slideUpFade {
+  0% {
+    -webkit-transform: translate(0, 100%);
+    -ms-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+@keyframes slideUpFade {
+  0% {
+    -webkit-transform: translate(0, 100%);
+    -ms-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
   }
 }
 @-webkit-keyframes blur {
@@ -779,6 +837,18 @@ span.animate--js {
 .animate--js.sequence > *:nth-child(12) {
   --delay: calc(var(--sequence-steps, 0.1s) * 11);
 }
+.animate.sequence > *:nth-child(13),
+.animate--js.sequence > *:nth-child(13) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 12);
+}
+.animate.sequence > *:nth-child(14),
+.animate--js.sequence > *:nth-child(14) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 13);
+}
+.animate.sequence > *:nth-child(15),
+.animate--js.sequence > *:nth-child(15) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 14);
+}
 .animate--js.sequence > * {
   -webkit-animation-play-state: var(--play-state, paused);
   animation-play-state: var(--play-state, paused);
@@ -792,6 +862,9 @@ span.animate--js {
   animation-fill-mode: var(--fill-mode, both);
   animation-play-state: var(--play-state, running);
   opacity: 1;
+}
+.sequence-sliced {
+  --sequence-steps: 0.025s;
 }
 .fade {
   --animation: fade;
@@ -868,11 +941,14 @@ span.animate--js {
 .cutInSplit {
   --animation: cutInSplit;
 }
+.slideDown {
+  --animation: slideDown;
+}
 .slideUp {
   --animation: slideUp;
 }
-.slideDown {
-  --animation: slideDown;
+.slideUpFade {
+  --animation: slideUpFade;
 }
 .blur {
   --animation: blur;
