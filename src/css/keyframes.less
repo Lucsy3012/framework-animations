@@ -317,6 +317,50 @@
   }
 }
 
+@-webkit-keyframes slideUpTypo {
+  0% {
+    -webkit-transform: translate(0, 100%) rotate(20deg);
+    -ms-transform: translate(0, 100%) rotate(20deg);
+    transform: translate(0, 100%) rotate(20deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    -ms-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpTypo {
+  0% {
+    -webkit-transform: translate(0, 100%) rotate(20deg);
+    -ms-transform: translate(0, 100%) rotate(20deg);
+    transform: translate(0, 100%) rotate(20deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    -ms-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+
 // Blur
 @-webkit-keyframes blur {
   0%    { -webit-filter: blur(var(--blur, 10px)); filter: blur(var(--blur, 10px)); }

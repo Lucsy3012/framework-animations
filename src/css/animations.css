@@ -548,6 +548,48 @@
     opacity: 1;
   }
 }
+@-webkit-keyframes slideUpTypo {
+  0% {
+    -webkit-transform: translate(0, 100%) rotate(20deg);
+    -ms-transform: translate(0, 100%) rotate(20deg);
+    transform: translate(0, 100%) rotate(20deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    -ms-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
+@keyframes slideUpTypo {
+  0% {
+    -webkit-transform: translate(0, 100%) rotate(20deg);
+    -ms-transform: translate(0, 100%) rotate(20deg);
+    transform: translate(0, 100%) rotate(20deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+    -ms-transform: translate(0, 0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+  }
+}
 @-webkit-keyframes blur {
   0% {
     -webit-filter: blur(var(--blur, 10px));
@@ -774,6 +816,12 @@ span.animate--js {
 .animate--js.sequence > span {
   display: inline-block;
 }
+.animate.sequence > span:empty:before,
+.animate--js.sequence > span:empty:before {
+  content: "";
+  width: 0.2em;
+  display: inline-block;
+}
 .animate.sequence > *,
 .animate--js.sequence > * {
   -webkit-animation-name: var(--animation, fade);
@@ -848,6 +896,70 @@ span.animate--js {
 .animate.sequence > *:nth-child(15),
 .animate--js.sequence > *:nth-child(15) {
   --delay: calc(var(--sequence-steps, 0.1s) * 14);
+}
+.animate.sequence > *:nth-child(16),
+.animate--js.sequence > *:nth-child(16) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 15);
+}
+.animate.sequence > *:nth-child(17),
+.animate--js.sequence > *:nth-child(17) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 16);
+}
+.animate.sequence > *:nth-child(18),
+.animate--js.sequence > *:nth-child(18) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 17);
+}
+.animate.sequence > *:nth-child(19),
+.animate--js.sequence > *:nth-child(19) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 18);
+}
+.animate.sequence > *:nth-child(20),
+.animate--js.sequence > *:nth-child(20) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 19);
+}
+.animate.sequence > *:nth-child(21),
+.animate--js.sequence > *:nth-child(21) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 20);
+}
+.animate.sequence > *:nth-child(22),
+.animate--js.sequence > *:nth-child(22) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 21);
+}
+.animate.sequence > *:nth-child(23),
+.animate--js.sequence > *:nth-child(23) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 22);
+}
+.animate.sequence > *:nth-child(24),
+.animate--js.sequence > *:nth-child(24) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 23);
+}
+.animate.sequence > *:nth-child(25),
+.animate--js.sequence > *:nth-child(25) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 24);
+}
+.animate.sequence > *:nth-child(26),
+.animate--js.sequence > *:nth-child(26) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 25);
+}
+.animate.sequence > *:nth-child(27),
+.animate--js.sequence > *:nth-child(27) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 26);
+}
+.animate.sequence > *:nth-child(28),
+.animate--js.sequence > *:nth-child(28) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 27);
+}
+.animate.sequence > *:nth-child(29),
+.animate--js.sequence > *:nth-child(29) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 28);
+}
+.animate.sequence > *:nth-child(30),
+.animate--js.sequence > *:nth-child(30) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 29);
+}
+.animate.sequence > *:nth-child(31),
+.animate--js.sequence > *:nth-child(31) {
+  --delay: calc(var(--sequence-steps, 0.1s) * 30);
 }
 .animate--js.sequence > * {
   -webkit-animation-play-state: var(--play-state, paused);
@@ -949,6 +1061,9 @@ span.animate--js {
 }
 .slideUpFade {
   --animation: slideUpFade;
+}
+.slideUpTypo {
+  --animation: slideUpTypo;
 }
 .blur {
   --animation: blur;

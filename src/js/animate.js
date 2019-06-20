@@ -33,7 +33,7 @@ $(document).ready(function () {
         $this.html('');
 
         for (var i=0; i < text.length; i++) {
-            var span = '<span>' + text[i] + '</span>';
+            var span = '<span>' + text[i].replace(' ', '') + '</span>';
             $this.append(span);
         }
     });
