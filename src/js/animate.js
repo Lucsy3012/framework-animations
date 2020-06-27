@@ -1,41 +1,38 @@
-$(document).ready(function () {
+window.onload = function() {
 
     animateIn();
 
-    $(window).on('scroll resize', function() {
+    window.addEventListener('scroll', function() {
         animateIn();
     });
 
     function animateIn() {
-        $('.animate--js').each(function() {
-            var $this = $(this),
-                thisPosition = $this.offset().top,
+        document.querySelectorAll('.animate--js').forEach(function(el) {
+            let thisPosition = el.getBoundingClientRect().top + window.scrollY;
+            let windowHeight = window.innerHeight;
+            let scrolled = window.scrollY;
 
-                $window = $(window),
-                windowHeight = $window.height(),
-                scrolled = $window.scrollTop(),
-
-                _visible = thisPosition <= ((windowHeight * 0.8) + scrolled);
+            let _visible = thisPosition <= ((windowHeight * 0.8) + scrolled);
 
             if (_visible) {
-                $this.addClass('in');
+                el.classList.add('in');
             }
         });
     }
 
     // Slide up sequence
-    var $slicedSequence = $('.sequence-sliced');
+    const $slicedSequence = document.querySelectorAll('.sequence-sliced');
 
-    $slicedSequence.each(function() {
-        var $this = $(this),
-            text = $this.text().split('');
+    $slicedSequence.forEach(function(el) {
+        let text = el.textContent;
 
-        $this.html('');
+        el.innerHTML = '';
 
-        for (var i=0; i < text.length; i++) {
-            var span = '<span>' + text[i].replace(' ', '') + '</span>';
-            $this.append(span);
+        for (let i=0; i < text.length; i++) {
+            let span = document.createElement('span');
+            span.innerHTML = text[i];
+            el.appendChild(span);
         }
     });
 
-});
+};
