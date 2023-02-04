@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="920px" height="760px" viewBox="0 0 920 760" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>custom-properties</title>
+    <desc>Created with Sketch.</desc>
+    <g id="custom-properties" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill-opacity="0.1" fill="#4836A3" fill-rule="nonzero" x="0" y="0" width="920" height="760"></rect>
+        <g id="Group-53" transform="translate(250.000000, 187.000000)">
+            <polygon id="Fill-2" fill="#FFFFFF" points="187 23 420 23 420 0 187 0"></polygon>
+            <polyline id="Stroke-31" stroke="#000000" stroke-width="5" fill-opacity="0.247131774" fill="#4836A3" points="187 245 187 0 420 0 420 315 396.608256 315"></polyline>
+            <polygon id="Fill-3" fill="#9A90CC" points="0 386 396 386 396 246 0 246"></polygon>
+            <polygon id="Stroke-4" stroke="#000000" stroke-width="5" points="0 386 396 386 396 246 0 246"></polygon>
+            <polygon id="Stroke-5" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="65 292 88 292 88 269 65 269"></polygon>
+            <polygon id="Stroke-6" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="30 292 53 292 53 269 30 269"></polygon>
+            <polygon id="Stroke-7" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="100 292 123 292 123 269 100 269"></polygon>
+            <polygon id="Stroke-8" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="170 292 193 292 193 269 170 269"></polygon>
+            <polygon id="Stroke-9" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="135 292 158 292 158 269 135 269"></polygon>
+            <polygon id="Stroke-10" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="205 292 228 292 228 269 205 269"></polygon>
+            <polygon id="Stroke-11" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="239 292 262 292 262 269 239 269"></polygon>
+            <polygon id="Stroke-12" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="65 362 88 362 88 339 65 339"></polygon>
+            <polygon id="Stroke-13" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="30 362 53 362 53 339 30 339"></polygon>
+            <polygon id="Stroke-14" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="100 362 123 362 123 339 100 339"></polygon>
+            <polygon id="Stroke-15" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="135 362 263 362 263 339 135 339"></polygon>
+            <polygon id="Stroke-16" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="274 362 297 362 297 339 274 339"></polygon>
+            <polygon id="Stroke-17" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="309 362 332 362 332 339 309 339"></polygon>
+            <polygon id="Stroke-18" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="344 362 367 362 367 339 344 339"></polygon>
+            <polygon id="Stroke-19" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="274 292 297 292 297 269 274 269"></polygon>
+            <polygon id="Stroke-20" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="309 292 332 292 332 269 309 269"></polygon>
+            <polygon id="Stroke-21" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="344 292 367 292 367 269 344 269"></polygon>
+            <polygon id="Stroke-22" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="47 327 70 327 70 304 47 304"></polygon>
+            <polygon id="Stroke-23" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="82 327 105 327 105 304 82 304"></polygon>
+            <polygon id="Stroke-24" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="117 327 140 327 140 304 117 304"></polygon>
+            <polygon id="Stroke-25" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="152 327 175 327 175 304 152 304"></polygon>
+            <polygon id="Stroke-26" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="187 327 210 327 210 304 187 304"></polygon>
+            <polygon id="Stroke-27" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="222 327 245 327 245 304 222 304"></polygon>
+            <polygon id="Stroke-28" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="257 327 280 327 280 304 257 304"></polygon>
+            <polygon id="Stroke-29" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="292 327 315 327 315 304 292 304"></polygon>
+            <polygon id="Stroke-30" stroke="#000000" stroke-width="5" fill-opacity="0.395842439" fill="#4836A3" points="327 327 350 327 350 304 327 304"></polygon>
+            <path d="M187,23.5 L420,23.5" id="Stroke-32" stroke="#000000" stroke-width="5"></path>
+            <path d="M210,70.5 L303,70.5" id="Stroke-33" stroke="#000000" stroke-width="5"></path>
+            <path d="M234,82.5 L397,82.5" id="Stroke-34" stroke="#000000" stroke-width="5"></path>
+            <path d="M257,93.5 L374,93.5" id="Stroke-35" stroke="#000000" stroke-width="5"></path>
+            <path d="M210,128.5 L303,128.5" id="Stroke-36" stroke="#000000" stroke-width="5"></path>
+            <path d="M234,140.5 L397,140.5" id="Stroke-37" stroke="#000000" stroke-width="5"></path>
+            <path d="M257,152.5 L374,152.5" id="Stroke-38" stroke="#000000" stroke-width="5"></path>
+            <path d="M210,187.5 L303,187.5" id="Stroke-39" stroke="#000000" stroke-width="5"></path>
+            <path d="M234,198.5 L397,198.5" id="Stroke-40" stroke="#000000" stroke-width="5"></path>
+            <path d="M257,210.5 L374,210.5" id="Stroke-41" stroke="#000000" stroke-width="5"></path>
+            <g id="Group-52" transform="translate(0.000000, 58.000000)">
+                <path d="M163,82.0472743 C163,127.207628 126.511286,163.817186 81.5,163.817186 C36.4887143,163.817186 0,127.207628 0,82.0472743 C0,36.8883805 36.4887143,0.277362832 81.5,0.277362832 C126.511286,0.277362832 163,36.8883805 163,82.0472743" id="Fill-42" fill="#FBD764"></path>
+                <path d="M163,82.0472743 C163,127.207628 126.511286,163.817186 81.5,163.817186 C36.4887143,163.817186 0,127.207628 0,82.0472743 C0,36.8883805 36.4887143,0.277362832 81.5,0.277362832 C126.511286,0.277362832 163,36.8883805 163,82.0472743 Z" id="Stroke-44" stroke="#000000" stroke-width="5"></path>
+                <polyline id="Stroke-46" stroke="#000000" stroke-width="5" points="58.2142857 105.410106 34.9285714 82.0472743 58.2142857 58.6844425"></polyline>
+                <polyline id="Stroke-48" stroke="#000000" stroke-width="5" points="104.785714 58.6844425 128.071429 82.0472743 104.785714 105.410106"></polyline>
+                <path d="M93.1428571,58.6844425 L69.8571429,105.410106" id="Stroke-50" stroke="#000000" stroke-width="5"></path>
+            </g>
+        </g>
+    </g>
+</svg>
